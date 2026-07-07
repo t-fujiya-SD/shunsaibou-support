@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="robots" content="noindex" />
+<title>焼肉 炎蔵 -ENZO-｜厚切りタンと和牛の店（制作サンプル）</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&family=Oswald:wght@500;600&display=swap" rel="stylesheet" />
+<style>
+  :root{--bg:#121212;--bg2:#1b1b1b;--ink:#f2ede6;--mut:#9a938a;--red:#d92e2e;--red-d:#a81f1f;--line:#2c2c2c;--sans:"Noto Sans JP",sans-serif;--en:"Oswald",sans-serif}
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:var(--sans);color:var(--ink);background:var(--bg);line-height:1.9;-webkit-font-smoothing:antialiased}
+  a{color:inherit;text-decoration:none}
+  .wrap{max-width:960px;margin:0 auto;padding:0 20px}
+  .sample{background:#000;color:#8a8272;text-align:center;font-size:11px;padding:6px 12px}
+  header{position:sticky;top:0;z-index:40;background:rgba(18,18,18,.94);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+  .nav{display:flex;justify-content:space-between;align-items:center;height:58px}
+  .brand{font-weight:900;font-size:19px;letter-spacing:.08em;display:flex;align-items:center;gap:9px}
+  .brand .fl{color:var(--red);font-family:var(--en);font-size:22px}
+  .brand small{color:var(--mut);font-family:var(--en);font-size:10px;letter-spacing:.3em;display:block;line-height:1}
+  .tel-btn{background:var(--red);color:#fff;font-weight:700;font-size:13px;padding:9px 18px;border-radius:4px}
+  .hero{position:relative;min-height:76vh;display:flex;align-items:flex-end;background:#221410 url('https://images.unsplash.com/photo-1603360946369-dc9bb6258143?w=1200&q=70&auto=format&fit=crop') center/cover}
+  .hero::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(10,8,8,.2) 20%,rgba(10,8,8,.88))}
+  .hero-in{position:relative;z-index:2;color:#fff;padding:0 20px 44px;max-width:960px;margin:0 auto;width:100%}
+  .hero .en{font-family:var(--en);color:var(--red);letter-spacing:.4em;font-size:13px;margin-bottom:10px}
+  .hero h1{font-size:clamp(32px,7.5vw,56px);font-weight:900;line-height:1.35;letter-spacing:.04em}
+  .hero h1 .rd{color:#ff5a45}
+  .hero p{margin-top:12px;font-size:14px;color:#e0d5c8}
+  .hero .cta{display:flex;gap:10px;margin-top:22px;flex-wrap:wrap}
+  .btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;font-weight:700;border-radius:6px;padding:14px 28px;font-size:15px}
+  .btn-red{background:var(--red);color:#fff}
+  .btn-frame{border:1.5px solid #fff;color:#fff}
+  section{padding:70px 0}
+  .eyebrow{font-family:var(--en);color:var(--red);font-size:13px;letter-spacing:.4em;margin-bottom:10px}
+  h2{font-size:clamp(24px,5vw,34px);font-weight:900;line-height:1.5;letter-spacing:.02em}
+  .lead{color:var(--mut);font-size:14px;margin-top:12px;max-width:600px}
+  .feat{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px;margin-top:34px}
+  .feat div{background:var(--bg2);border:1px solid var(--line);border-left:3px solid var(--red);padding:22px}
+  .feat b{font-size:16px;display:block;margin-bottom:6px}
+  .feat p{font-size:13px;color:var(--mut)}
+  .menu-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(155px,1fr));gap:12px;margin-top:32px}
+  .mi{background:var(--bg2);border:1px solid var(--line);border-radius:8px;overflow:hidden;position:relative}
+  .mi .bd{position:absolute;top:10px;left:10px;background:var(--red);color:#fff;font-size:10.5px;font-weight:700;padding:3px 9px;border-radius:3px;z-index:2}
+  .mi .ph{height:120px;background:#33241c center/cover}
+  .mi .tx{padding:12px 14px}
+  .mi h4{font-size:14px;font-weight:700}
+  .mi .pr{color:#ff8a75;font-weight:900;font-size:15px;margin-top:2px}
+  .mi .pr small{font-size:11px;color:var(--mut);font-weight:400}
+  .course{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:14px;margin-top:32px}
+  .co{background:var(--bg2);border:1px solid var(--line);border-radius:10px;padding:28px;position:relative}
+  .co.oshi{border:2px solid var(--red)}
+  .co .tag{position:absolute;top:-12px;left:20px;background:var(--red);color:#fff;font-size:11px;font-weight:700;padding:4px 12px;border-radius:3px}
+  .co h3{font-size:18px;font-weight:900}
+  .co .pr{font-family:var(--en);font-size:30px;color:#ff5a45;margin:6px 0}
+  .co .pr small{font-family:var(--sans);font-size:12px;color:var(--mut)}
+  .co ul{list-style:none;margin-top:10px}
+  .co li{font-size:13px;color:#c9c1b6;padding:5px 0;border-bottom:1px dashed var(--line)}
+  .info{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:22px;margin-top:30px}
+  .info table{width:100%;font-size:13.5px;border-collapse:collapse}
+  .info th{text-align:left;color:var(--mut);font-weight:500;padding:10px 0;width:90px;vertical-align:top}
+  .info td{padding:10px 0;border-bottom:1px solid var(--line)}
+  .info .ph2{border-radius:10px;min-height:230px;background:#33241c url('https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=800&q=70&auto=format&fit=crop') center/cover}
+  footer{background:#000;color:#6f695f;text-align:center;font-size:12px;padding:34px 20px 92px}
+  .mbar{position:fixed;bottom:0;left:0;right:0;z-index:50;display:flex;gap:8px;background:rgba(18,18,18,.97);border-top:1px solid var(--line);padding:10px 14px}
+  .mbar .btn{flex:1;font-size:14px;padding:13px 8px}
+</style>
+</head>
+<body>
+<div class="sample">※このページは「旬彩坊 店舗支援部」の制作サンプルです（架空のお店です）</div>
+<header><div class="wrap nav">
+  <div class="brand"><span class="fl">炎</span><span>焼肉 炎蔵<small>YAKINIKU ENZO</small></span></div>
+  <a class="tel-btn" href="tel:0000000000">予約する</a>
+</div></header>
+
+<div class="hero">
+  <div class="hero-in">
+    <div class="en">YAKINIKU ENZO</div>
+    <h1>肉で、<span class="rd">語れ。</span></h1>
+    <p>名物・厚切りタンは、一頭からわずか六人前。売り切れ御免の本気の焼肉。</p>
+    <div class="cta">
+      <a class="btn btn-red" href="tel:0000000000">☎ 席を押さえる</a>
+      <a class="btn btn-frame" href="#menu">名物メニュー</a>
+    </div>
+  </div>
+</div>
+
+<section>
+  <div class="wrap">
+    <div class="eyebrow">POLICY</div>
+    <h2>ケチらない焼肉屋。</h2>
+    <div class="feat">
+      <div><b>厚切り10mmタン塩</b><p>薄いタンは出しません。噛むほどに旨い10mm厚が基準です。</p></div>
+      <div><b>和牛一頭買い</b><p>まるごと仕入れるから、希少部位までこの価格で出せます。</p></div>
+      <div><b>タレは継ぎ足し十年</b><p>開店から継ぎ足してきた自家製ダレ。白飯が止まりません。</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="menu" style="background:var(--bg2);border-top:1px solid var(--line);border-bottom:1px solid var(--line)">
+  <div class="wrap">
+    <div class="eyebrow">GRAND MENU</div>
+    <h2>まずはタンから。</h2>
+    <div class="menu-grid">
+      <div class="mi"><span class="bd">名物</span><div class="ph" style="background-image:url('https://images.unsplash.com/photo-1603360946369-dc9bb6258143?w=600&q=70&auto=format&fit=crop')"></div><div class="tx"><h4>厚切りタン塩</h4><div class="pr">1,680円</div></div></div>
+      <div class="mi"><div class="ph" style="background-image:url('https://images.unsplash.com/photo-1544025162-d76694265947?w=600&q=70&auto=format&fit=crop')"></div><div class="tx"><h4>特上カルビ</h4><div class="pr">1,980円</div></div></div>
+      <div class="mi"><div class="ph" style="background-image:url('https://images.unsplash.com/photo-1529692236671-f1f6cf9683ba?w=600&q=70&auto=format&fit=crop')"></div><div class="tx"><h4>やみつきハラミ</h4><div class="pr">1,280円</div></div></div>
+      <div class="mi"><span class="bd">〆</span><div class="ph" style="background-image:url('https://images.unsplash.com/photo-1569718212165-3a8278d5f624?w=600&q=70&auto=format&fit=crop')"></div><div class="tx"><h4>盛岡冷麺</h4><div class="pr">880円</div></div></div>
+    </div>
+    <p class="lead" style="margin-top:22px">ほか、一頭買いならではの希少部位（ミスジ・ザブトン・イチボ）は本日のおすすめ黒板でご案内。</p>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="eyebrow">COURSE</div>
+    <h2>迷ったら、コースで全部。</h2>
+    <div class="course">
+      <div class="co"><h3>スタンダードコース</h3><div class="pr">5,000円<small>／全9品</small></div>
+        <ul><li>厚切りタン塩・カルビ・ハラミ</li><li>ナムル・キムチ・サンチュ</li><li>冷麺 or クッパ・デザート</li></ul></div>
+      <div class="co oshi"><span class="tag">満足度No.1</span><h3>炎蔵コース</h3><div class="pr">7,500円<small>／全12品・希少部位つき</small></div>
+        <ul><li>厚切りタン塩・特上カルビ・本日の希少部位三種</li><li>ユッケ・スープ・ナムル・キムチ</li><li>冷麺 or クッパ・デザート</li></ul></div>
+    </div>
+  </div>
+</section>
+
+<section style="padding-top:0">
+  <div class="wrap">
+    <div class="eyebrow">INFO</div>
+    <h2>焼肉 炎蔵</h2>
+    <div class="info">
+      <table>
+        <tr><th>住所</th><td>神奈川県相模原市南区相模大野X-X-X 1F</td></tr>
+        <tr><th>電話</th><td>042-XXX-XXXX（サンプル）</td></tr>
+        <tr><th>営業時間</th><td>17:00–23:30（L.O. 23:00）／無休</td></tr>
+        <tr><th>席数</th><td>テーブル40席（無煙ロースター完備）</td></tr>
+        <tr><th>予算</th><td>5,000円〜8,000円</td></tr>
+      </table>
+      <div class="ph2"></div>
+    </div>
+  </div>
+</section>
+
+<footer>制作サンプル｜旬彩坊 店舗支援部（実在の店舗ではありません）</footer>
+<div class="mbar">
+  <a class="btn btn-frame" href="#menu">メニューを見る</a>
+  <a class="btn btn-red" href="tel:0000000000">☎ 電話で予約</a>
+</div>
+</body>
+</html>

@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="robots" content="noindex" />
+<title>Bar &amp; Dining TERRA｜ワインとおばんざいバル（制作サンプル）</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;800&family=Poppins:wght@500;600;700&display=swap" rel="stylesheet" />
+<style>
+  :root{--bg:#fbf7f0;--paper:#fff;--ink:#33302a;--mut:#7d766b;--terra:#c96f4a;--terra-d:#a75434;--olive:#6b7c3f;--line:#eee5d8;--sans:"Noto Sans JP",sans-serif;--en:"Poppins",sans-serif}
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:var(--sans);color:var(--ink);background:var(--bg);line-height:1.9;-webkit-font-smoothing:antialiased}
+  a{color:inherit;text-decoration:none}
+  .wrap{max-width:960px;margin:0 auto;padding:0 20px}
+  .sample{background:#33302a;color:#cfc4b2;text-align:center;font-size:11px;padding:6px 12px}
+  header{position:sticky;top:0;z-index:40;background:rgba(251,247,240,.94);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+  .nav{display:flex;justify-content:space-between;align-items:center;height:58px}
+  .brand{font-family:var(--en);font-weight:700;font-size:19px;letter-spacing:.04em}
+  .brand em{font-style:normal;color:var(--terra)}
+  .brand small{display:block;font-family:var(--sans);font-size:10px;color:var(--mut);font-weight:500;line-height:1.2}
+  .tel-btn{background:var(--terra);color:#fff;font-weight:700;font-size:13px;padding:9px 18px;border-radius:999px}
+  .hero{position:relative;min-height:74vh;display:flex;align-items:flex-end;background:#3d332a url('https://images.unsplash.com/photo-1514933651103-005eec06c04b?w=1200&q=70&auto=format&fit=crop') center/cover}
+  .hero::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(28,22,16,.1) 30%,rgba(28,22,16,.8))}
+  .hero-in{position:relative;z-index:2;color:#fff;padding:0 20px 44px;max-width:960px;margin:0 auto;width:100%}
+  .hero .en{font-family:var(--en);font-weight:600;color:#f0b389;letter-spacing:.3em;font-size:12px;margin-bottom:10px}
+  .hero h1{font-size:clamp(28px,6.6vw,48px);font-weight:800;line-height:1.45}
+  .hero p{margin-top:12px;font-size:14px;color:#efe3d3}
+  .hero .cta{display:flex;gap:10px;margin-top:22px;flex-wrap:wrap}
+  .btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;font-weight:700;border-radius:999px;padding:14px 28px;font-size:15px}
+  .btn-fill{background:var(--terra);color:#fff}
+  .btn-frame{border:1.5px solid #fff;color:#fff}
+  section{padding:68px 0}
+  .eyebrow{font-family:var(--en);color:var(--olive);font-weight:600;font-size:12px;letter-spacing:.3em;text-transform:uppercase;margin-bottom:10px}
+  h2{font-size:clamp(23px,4.8vw,32px);font-weight:800;line-height:1.55}
+  h2 .tr{color:var(--terra)}
+  .lead{color:var(--mut);font-size:14px;margin-top:12px;max-width:600px}
+  .feat{display:grid;grid-template-columns:repeat(auto-fit,minmax(215px,1fr));gap:14px;margin-top:32px}
+  .feat div{background:var(--paper);border:1px solid var(--line);border-radius:16px;padding:22px}
+  .feat .ic{font-size:26px;margin-bottom:8px}
+  .feat b{font-size:15.5px;display:block;margin-bottom:5px}
+  .feat p{font-size:13px;color:var(--mut)}
+  .menu-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:13px;margin-top:32px}
+  .mi{background:var(--paper);border:1px solid var(--line);border-radius:16px;overflow:hidden}
+  .mi .ph{height:118px;background:#7a6a52 center/cover}
+  .mi .tx{padding:12px 14px}
+  .mi h4{font-size:13.5px;font-weight:700;line-height:1.5}
+  .mi .pr{color:var(--terra-d);font-weight:800;font-size:14px;margin-top:3px}
+  .wine{background:#f2ecdf;border-radius:18px;padding:26px;margin-top:26px;display:flex;gap:18px;align-items:center;flex-wrap:wrap}
+  .wine .gl{font-size:34px}
+  .wine b{font-size:16px}
+  .wine p{font-size:13px;color:var(--mut)}
+  .course{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:14px;margin-top:32px}
+  .co{background:var(--paper);border:1px solid var(--line);border-radius:18px;padding:28px;position:relative}
+  .co.oshi{border:2px solid var(--terra)}
+  .co .tag{position:absolute;top:-12px;left:20px;background:var(--terra);color:#fff;font-size:11px;font-weight:700;padding:4px 13px;border-radius:999px}
+  .co h3{font-size:17px;font-weight:800}
+  .co .pr{font-family:var(--en);font-size:27px;color:var(--terra-d);margin:6px 0;font-weight:700}
+  .co .pr small{font-family:var(--sans);font-size:12px;color:var(--mut);font-weight:500}
+  .co ul{list-style:none;margin-top:10px}
+  .co li{font-size:13px;color:var(--mut);padding:5px 0;border-bottom:1px dashed var(--line)}
+  .info{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:22px;margin-top:30px}
+  .info table{width:100%;font-size:13.5px;border-collapse:collapse}
+  .info th{text-align:left;color:var(--mut);font-weight:500;padding:10px 0;width:90px;vertical-align:top}
+  .info td{padding:10px 0;border-bottom:1px solid var(--line)}
+  .info .ph2{border-radius:16px;min-height:230px;background:#7a6a52 url('https://images.unsplash.com/photo-1510812431401-41d2bd2722f3?w=800&q=70&auto=format&fit=crop') center/cover}
+  footer{background:#33302a;color:#a89c88;text-align:center;font-size:12px;padding:34px 20px 92px}
+  .mbar{position:fixed;bottom:0;left:0;right:0;z-index:50;display:flex;gap:8px;background:rgba(251,247,240,.97);border-top:1px solid var(--line);padding:10px 14px}
+  .mbar .btn{flex:1;font-size:14px;padding:13px 8px}
+  .mbar .btn-ghost{border:1.5px solid var(--terra);color:var(--terra-d)}
+</style>
+</head>
+<body>
+<div class="sample">※このページは「旬彩坊 店舗支援部」の制作サンプルです（架空のお店です）</div>
+<header><div class="wrap nav">
+  <div class="brand">Bar &amp; Dining <em>TERRA</em><small>ワインとおばんざいバル・町田</small></div>
+  <a class="tel-btn" href="tel:0000000000">予約する</a>
+</div></header>
+
+<div class="hero">
+  <div class="hero-in">
+    <div class="en">BAR &amp; DINING TERRA — MACHIDA</div>
+    <h1>今夜、ワイン1杯から<br>ふらっとどうぞ。</h1>
+    <p>グラスワイン590円〜、小皿は390円〜。ひとりでも、大人数でも。</p>
+    <div class="cta">
+      <a class="btn btn-fill" href="tel:0000000000">☎ 予約する</a>
+      <a class="btn btn-frame" href="#menu">フード＆ワイン</a>
+    </div>
+  </div>
+</div>
+
+<section>
+  <div class="wrap">
+    <div class="eyebrow">About</div>
+    <h2>気取らない、<span class="tr">おいしい</span>が集まる店。</h2>
+    <div class="feat">
+      <div><div class="ic">🍷</div><b>グラスワイン常時12種</b><p>自然派を中心に590円〜。迷ったらスタッフにひと声どうぞ。</p></div>
+      <div><div class="ic">🥘</div><b>小皿で、あれこれ。</b><p>390円〜の小皿料理で、少しずつたくさん楽しめます。</p></div>
+      <div><div class="ic">🕰</div><b>23時までフード全品OK</b><p>2軒目づかいも歓迎。〆のパスタまでしっかりどうぞ。</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="menu" style="background:#fff;border-top:1px solid var(--line);border-bottom:1px solid var(--line)">
+  <div class="wrap">
+    <div class="eyebrow">Food &amp; Wine</div>
+    <h2>人気の顔ぶれ。</h2>
+    <div class="menu-grid">
+      <div class="mi"><div class="ph" style="background-image:url('https://images.unsplash.com/photo-1541529086526-db283c563270?w=600&q=70&auto=format&fit=crop')"></div><div class="tx"><h4>生ハムとチーズの盛り合わせ</h4><div class="pr">1,380円</div></div></div>
+      <div class="mi"><div class="ph" style="background-image:url('https://images.unsplash.com/photo-1556910103-1c02745aae4d?w=600&q=70&auto=format&fit=crop')"></div><div class="tx"><h4>海老ときのこのアヒージョ</h4><div class="pr">980円</div></div></div>
+      <div class="mi"><div class="ph" style="background-image:url('https://images.unsplash.com/photo-1563379926898-05f4575a45d8?w=600&q=70&auto=format&fit=crop')"></div><div class="tx"><h4>本日のパスタ</h4><div class="pr">1,180円</div></div></div>
+      <div class="mi"><div class="ph" style="background-image:url('https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=600&q=70&auto=format&fit=crop')"></div><div class="tx"><h4>牛ほほ肉の赤ワイン煮</h4><div class="pr">1,680円</div></div></div>
+    </div>
+    <div class="wine">
+      <span class="gl">🍷</span>
+      <div><b>グラスワイン 590円〜／ボトル 2,900円〜</b><p>季節ごとに入れ替わる自然派ワインを中心に、常時30種ご用意しています。</p></div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="eyebrow">Party Plan</div>
+    <h2>女子会も、貸切も。</h2>
+    <div class="course">
+      <div class="co"><h3>気軽にバルコース</h3><div class="pr">4,500円<small>／2時間飲み放題つき</small></div>
+        <ul><li>前菜盛り合わせ・小皿三種</li><li>アヒージョ＆バゲット</li><li>本日のパスタ・ドルチェ</li></ul></div>
+      <div class="co oshi"><span class="tag">貸切もOK</span><h3>TERRAフルコース</h3><div class="pr">6,000円<small>／2.5時間飲み放題つき</small></div>
+        <ul><li>前菜盛り合わせ・小皿四種</li><li>魚料理・牛ほほ肉の赤ワイン煮</li><li>本日のパスタ・ドルチェ盛り合わせ</li></ul></div>
+    </div>
+    <p class="lead" style="margin-top:22px">立食20〜35名様で貸切可。歓送迎会・二次会のご相談もお気軽に。</p>
+  </div>
+</section>
+
+<section style="padding-top:0">
+  <div class="wrap">
+    <div class="eyebrow">Info</div>
+    <h2>Bar &amp; Dining TERRA</h2>
+    <div class="info">
+      <table>
+        <tr><th>住所</th><td>東京都町田市森野X-X-X 1F（町田駅 徒歩5分）</td></tr>
+        <tr><th>電話</th><td>042-XXX-XXXX（サンプル）</td></tr>
+        <tr><th>営業時間</th><td>17:00–24:00（FOOD L.O. 23:00）／月曜定休</td></tr>
+        <tr><th>席数</th><td>テーブル28席・スタンディング10（貸切20〜35名）</td></tr>
+        <tr><th>予算</th><td>4,000円〜7,000円</td></tr>
+      </table>
+      <div class="ph2"></div>
+    </div>
+  </div>
+</section>
+
+<footer>制作サンプル｜旬彩坊 店舗支援部（実在の店舗ではありません）</footer>
+<div class="mbar">
+  <a class="btn btn-ghost" href="#menu">メニューを見る</a>
+  <a class="btn btn-fill" href="tel:0000000000">☎ 電話で予約</a>
+</div>
+</body>
+</html>

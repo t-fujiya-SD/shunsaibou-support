@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="robots" content="noindex" />
+<title>制作サンプル一覧｜旬彩坊 店舗支援部</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&family=Poppins:wght@500;600&display=swap" rel="stylesheet" />
+<style>
+  :root{--green-700:#1e8e4e;--green-600:#34a853;--green-100:#e6f4ea;--green-50:#f3faf5;--blue:#4285f4;--red:#ea4335;--yellow:#f9ab00;--ink:#202124;--mut:#5f6368;--line:#e4e9e4;--sans:"Noto Sans JP",sans-serif;--en:"Poppins","Noto Sans JP",sans-serif;--sh:0 1px 2px rgba(60,64,67,.10),0 1px 3px rgba(60,64,67,.06);--sh-h:0 8px 22px rgba(60,64,67,.16)}
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:var(--sans);color:var(--ink);background:#fff;line-height:1.85;-webkit-font-smoothing:antialiased}
+  a{color:inherit;text-decoration:none}
+  .wrap{max-width:900px;margin:0 auto;padding:0 22px}
+  header{border-bottom:1px solid var(--line);background:linear-gradient(180deg,#f5faf5,#fff)}
+  .head{padding:52px 0 40px}
+  .eyebrow{display:inline-flex;align-items:center;gap:8px;font-family:var(--en);font-size:12px;font-weight:600;letter-spacing:.1em;color:var(--green-700);text-transform:uppercase;margin-bottom:14px}
+  .eyebrow::before{content:"";width:22px;height:2px;background:var(--green-600);border-radius:2px}
+  h1{font-size:clamp(24px,5vw,34px);font-weight:900;line-height:1.5}
+  .lead{color:var(--mut);font-size:14.5px;margin-top:12px;max-width:620px}
+  .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:18px;padding:44px 0 26px}
+  .card{border:1px solid var(--line);border-radius:16px;overflow:hidden;background:#fff;box-shadow:var(--sh);transition:transform .2s,box-shadow .2s;display:flex;flex-direction:column}
+  .card:hover{transform:translateY(-5px);box-shadow:var(--sh-h)}
+  .th{height:150px;background:#555 center/cover;position:relative}
+  .th span{position:absolute;left:12px;bottom:11px;background:rgba(255,255,255,.95);font-size:11.5px;font-weight:700;padding:4px 12px;border-radius:999px}
+  .tx{padding:18px 20px 20px;flex:1;display:flex;flex-direction:column}
+  .tx h2{font-size:17px;font-weight:700}
+  .tx .pr{font-size:12.5px;color:var(--mut);margin:2px 0 8px}
+  .tx p{font-size:13px;color:var(--mut);line-height:1.7;flex:1}
+  .tx .go{margin-top:12px;font-size:13.5px;font-weight:700;color:var(--green-700)}
+  .note{background:var(--green-50);border:1px solid var(--green-100);border-radius:14px;padding:18px 22px;font-size:13px;color:var(--mut);margin-bottom:26px}
+  .cta{text-align:center;padding:34px 0 60px;border-top:1px solid var(--line)}
+  .cta p{font-size:14.5px;color:var(--mut);margin-bottom:18px}
+  .btn{display:inline-flex;align-items:center;gap:8px;background:var(--green-700);color:#fff;font-weight:700;border-radius:999px;padding:14px 30px;font-size:15px;box-shadow:var(--sh)}
+</style>
+</head>
+<body>
+<header><div class="wrap head">
+  <span class="eyebrow">Works — 制作サンプル</span>
+  <h1>業態別・お店のページ制作例</h1>
+  <p class="lead">「うちの業態だと、どんなページになる？」のイメージづくりに。4つの業態でサンプルを制作しました。すべてスマホ対応・架空のお店です。</p>
+</div></header>
+
+<div class="wrap">
+  <div class="grid">
+    <a class="card" href="./yakitori/">
+      <div class="th" style="background-color:#3a2c22;background-image:url('https://images.unsplash.com/photo-1555939594-58d7cb561ad1?w=700&q=70&auto=format&fit=crop')"><span>焼鳥居酒屋</span></div>
+      <div class="tx"><h2>炭火焼鳥 とり玄</h2><div class="pr">客単価 4,000〜6,000円</div>
+      <p>仕事帰りに寄りたくなる、活気と親しみやすさ重視のデザイン。宴会コースと電話予約に直結させる構成。</p><div class="go">サンプルを見る →</div></div>
+    </a>
+    <a class="card" href="./premium/">
+      <div class="th" style="background-color:#1a1712;background-image:url('https://images.unsplash.com/photo-1579584425555-c3ce17fd4351?w=700&q=70&auto=format&fit=crop')"><span>高級居酒屋</span></div>
+      <div class="tx"><h2>和肴 燈火</h2><div class="pr">客単価 10,000〜15,000円</div>
+      <p>接待・会食むけの上質感を、余白と明朝体で表現。おまかせコースと個室訴求で客単価を支える構成。</p><div class="go">サンプルを見る →</div></div>
+    </a>
+    <a class="card" href="./yakiniku/">
+      <div class="th" style="background-color:#221410;background-image:url('https://images.unsplash.com/photo-1603360946369-dc9bb6258143?w=700&q=70&auto=format&fit=crop')"><span>焼肉</span></div>
+      <div class="tx"><h2>焼肉 炎蔵</h2><div class="pr">客単価 5,000〜8,000円</div>
+      <p>名物（厚切りタン）を主役に、シズル感で押し切る王道の焼肉デザイン。コース誘導で客単価を底上げ。</p><div class="go">サンプルを見る →</div></div>
+    </a>
+    <a class="card" href="./bal/">
+      <div class="th" style="background-color:#3d332a;background-image:url('https://images.unsplash.com/photo-1514933651103-005eec06c04b?w=700&q=70&auto=format&fit=crop')"><span>バル・ダイニング</span></div>
+      <div class="tx"><h2>Bar &amp; Dining TERRA</h2><div class="pr">客単価 4,000〜7,000円</div>
+      <p>「1杯からふらっと」の入りやすさと、女子会・貸切プランを両立。カジュアルで洒落た洋風トーン。</p><div class="go">サンプルを見る →</div></div>
+    </a>
+  </div>
+
+  <div class="note">※ 掲載の店名・メニュー・価格・住所はすべて架空のサンプルです。実際の制作では、お店の写真撮影・メニュー構成のご相談から一緒に行います。</div>
+</div>
+
+<div class="cta">
+  <p>「うちの店なら、どんなページになる？」<br>お気軽にご相談ください。ご相談は無料です。</p>
+  <a class="btn" href="../">旬彩坊 経営サポートを見る</a>
+</div>
+</body>
+</html>
