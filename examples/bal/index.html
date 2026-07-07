@@ -64,6 +64,21 @@
   .info th{text-align:left;color:var(--mut);font-weight:500;padding:10px 0;width:90px;vertical-align:top}
   .info td{padding:10px 0;border-bottom:1px solid var(--line)}
   .info .ph2{border-radius:16px;min-height:230px;background:#7a6a52 url('https://images.unsplash.com/photo-1510812431401-41d2bd2722f3?w=800&q=70&auto=format&fit=crop') center/cover}
+  .anchors{display:flex;gap:8px;overflow-x:auto;max-width:960px;margin:0 auto;padding:14px 20px;-webkit-overflow-scrolling:touch}
+  .anchors a{flex:none;border:1px solid var(--line);background:#fff;border-radius:999px;font-size:12.5px;font-weight:700;padding:8px 16px;color:var(--mut)}
+  .story{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:24px;align-items:center;margin-top:38px}
+  .story .ph{min-height:250px;border-radius:16px;background:#7a6a52 center/cover}
+  .story h3{font-size:18px;font-weight:800;margin-bottom:10px}
+  .story p{font-size:13.5px;color:var(--mut)}
+  .seats{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:14px;margin-top:30px}
+  .seat .ph{height:140px;border-radius:14px;background:#7a6a52 center/cover}
+  .seat b{display:block;font-size:14px;margin-top:9px}
+  .seat p{font-size:12.5px;color:var(--mut)}
+  .omen{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:8px 34px;margin-top:30px}
+  .omen h5{font-family:var(--en);font-size:12px;color:var(--olive);letter-spacing:.24em;text-transform:uppercase;margin:18px 0 4px;font-weight:600}
+  .oml{display:flex;justify-content:space-between;align-items:baseline;gap:10px;font-size:13.5px;padding:7px 0;border-bottom:1px dashed var(--line)}
+  .oml i{flex:1;border-bottom:1px dotted #d9cdbb;transform:translateY(-3px)}
+  .oml b{color:var(--terra-d);font-weight:800;white-space:nowrap}
   footer{background:#33302a;color:#a89c88;text-align:center;font-size:12px;padding:34px 20px 92px}
   .mbar{position:fixed;bottom:0;left:0;right:0;z-index:50;display:flex;gap:8px;background:rgba(251,247,240,.97);border-top:1px solid var(--line);padding:10px 14px}
   .mbar .btn{flex:1;font-size:14px;padding:13px 8px}
@@ -89,7 +104,11 @@
   </div>
 </div>
 
-<section>
+<div class="anchors">
+  <a href="#about">お店のこと</a><a href="#menu">フード＆ワイン</a><a href="#course">宴会プラン</a><a href="#seats">席・空間</a><a href="#info">店舗情報</a>
+</div>
+
+<section id="about" style="padding-top:44px">
   <div class="wrap">
     <div class="eyebrow">About</div>
     <h2>気取らない、<span class="tr">おいしい</span>が集まる店。</h2>
@@ -97,6 +116,14 @@
       <div><div class="ic">🍷</div><b>グラスワイン常時12種</b><p>自然派を中心に590円〜。迷ったらスタッフにひと声どうぞ。</p></div>
       <div><div class="ic">🥘</div><b>小皿で、あれこれ。</b><p>390円〜の小皿料理で、少しずつたくさん楽しめます。</p></div>
       <div><div class="ic">🕰</div><b>23時までフード全品OK</b><p>2軒目づかいも歓迎。〆のパスタまでしっかりどうぞ。</p></div>
+    </div>
+    <div class="story">
+      <div class="ph" style="background-image:url('https://images.unsplash.com/photo-1551218808-94e220e084d2?w=800&q=70&auto=format&fit=crop')"></div>
+      <div>
+        <h3>シェフとソムリエの店</h3>
+        <p>イタリアンで修業したシェフと、ワイン好きが高じてソムリエになった店長のふたりで営んでいます。「今日はどんな気分ですか？」から始まるお店です。</p>
+        <p style="margin-top:10px">料理はすべて注文後にひと手間かけて。ワインは"難しい話ナシ"で、好みに合う一杯をお出しします。</p>
+      </div>
     </div>
   </div>
 </section>
@@ -111,6 +138,36 @@
       <div class="mi"><div class="ph" style="background-image:url('https://images.unsplash.com/photo-1563379926898-05f4575a45d8?w=600&q=70&auto=format&fit=crop')"></div><div class="tx"><h4>本日のパスタ</h4><div class="pr">1,180円</div></div></div>
       <div class="mi"><div class="ph" style="background-image:url('https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=600&q=70&auto=format&fit=crop')"></div><div class="tx"><h4>牛ほほ肉の赤ワイン煮</h4><div class="pr">1,680円</div></div></div>
     </div>
+    <div class="omen">
+      <div>
+        <h5>Tapas — 小皿</h5>
+        <div class="oml">自家製ピクルス<i></i><b>390円</b></div>
+        <div class="oml">オリーブの盛り合わせ<i></i><b>390円</b></div>
+        <div class="oml">ポテトフリット<i></i><b>490円</b></div>
+        <div class="oml">砂肝のコンフィ<i></i><b>590円</b></div>
+        <div class="oml">鮮魚のカルパッチョ<i></i><b>890円</b></div>
+      </div>
+      <div>
+        <h5>Hot — 温菜・メイン</h5>
+        <div class="oml">海老ときのこのアヒージョ<i></i><b>980円</b></div>
+        <div class="oml">ムール貝の白ワイン蒸し<i></i><b>1,180円</b></div>
+        <div class="oml">マルゲリータ<i></i><b>1,280円</b></div>
+        <div class="oml">牛ほほ肉の赤ワイン煮<i></i><b>1,680円</b></div>
+        <h5>Pasta — 〆</h5>
+        <div class="oml">本日のパスタ<i></i><b>1,180円</b></div>
+        <div class="oml">濃厚カルボナーラ<i></i><b>1,280円</b></div>
+      </div>
+      <div>
+        <h5>Dolce</h5>
+        <div class="oml">ティラミス<i></i><b>580円</b></div>
+        <div class="oml">本日のジェラート<i></i><b>480円</b></div>
+        <h5>Drink</h5>
+        <div class="oml">グラスワイン<i></i><b>590円〜</b></div>
+        <div class="oml">ボトルワイン<i></i><b>2,900円〜</b></div>
+        <div class="oml">クラフトビール<i></i><b>780円</b></div>
+        <div class="oml">レモンサワー／ハイボール<i></i><b>520円／500円</b></div>
+      </div>
+    </div>
     <div class="wine">
       <span class="gl">🍷</span>
       <div><b>グラスワイン 590円〜／ボトル 2,900円〜</b><p>季節ごとに入れ替わる自然派ワインを中心に、常時30種ご用意しています。</p></div>
@@ -118,7 +175,7 @@
   </div>
 </section>
 
-<section>
+<section id="course">
   <div class="wrap">
     <div class="eyebrow">Party Plan</div>
     <h2>女子会も、貸切も。</h2>
@@ -132,7 +189,19 @@
   </div>
 </section>
 
-<section style="padding-top:0">
+<section id="seats" style="padding-top:0">
+  <div class="wrap">
+    <div class="eyebrow">Seat</div>
+    <h2>ひとりでも、大勢でも。</h2>
+    <div class="seats">
+      <div class="seat"><div class="ph" style="background-image:url('https://images.unsplash.com/photo-1521017432531-fbd92d768814?w=700&q=70&auto=format&fit=crop')"></div><b>カウンター 6席</b><p>ワイン片手にふらっと。おひとり様歓迎です。</p></div>
+      <div class="seat"><div class="ph" style="background-image:url('https://images.unsplash.com/photo-1559339352-11d035aa65de?w=700&q=70&auto=format&fit=crop')"></div><b>テーブル 28席</b><p>女子会・デートに。人数に合わせてアレンジできます。</p></div>
+      <div class="seat"><div class="ph" style="background-image:url('https://images.unsplash.com/photo-1514933651103-005eec06c04b?w=700&q=70&auto=format&fit=crop')"></div><b>貸切 20〜35名</b><p>立食スタイルの歓送迎会・二次会もおまかせください。</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="info" style="padding-top:0">
   <div class="wrap">
     <div class="eyebrow">Info</div>
     <h2>Bar &amp; Dining TERRA</h2>

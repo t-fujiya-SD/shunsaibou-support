@@ -61,6 +61,21 @@
   .info th{text-align:left;color:var(--mut);font-weight:500;padding:10px 0;width:90px;vertical-align:top}
   .info td{padding:10px 0;border-bottom:1px solid var(--line)}
   .info .ph2{border-radius:10px;min-height:230px;background:#33241c url('https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=800&q=70&auto=format&fit=crop') center/cover}
+  .anchors{display:flex;gap:8px;overflow-x:auto;max-width:960px;margin:0 auto;padding:14px 20px;-webkit-overflow-scrolling:touch}
+  .anchors a{flex:none;border:1px solid var(--line);background:var(--bg2);border-radius:4px;font-size:12.5px;font-weight:700;padding:8px 16px;color:#c9c1b6}
+  .story{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:24px;align-items:center;margin-top:38px}
+  .story .ph{min-height:250px;border-radius:8px;background:#33241c center/cover}
+  .story h3{font-size:18px;font-weight:900;margin-bottom:10px}
+  .story p{font-size:13.5px;color:var(--mut)}
+  .seats{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:14px;margin-top:30px}
+  .seat .ph{height:140px;border-radius:8px;background:#33241c center/cover}
+  .seat b{display:block;font-size:14px;margin-top:9px}
+  .seat p{font-size:12.5px;color:var(--mut)}
+  .omen{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:8px 34px;margin-top:30px}
+  .omen h5{font-size:12.5px;color:#ff8a75;letter-spacing:.2em;margin:18px 0 4px;font-weight:700}
+  .oml{display:flex;justify-content:space-between;align-items:baseline;gap:10px;font-size:13.5px;padding:7px 0;border-bottom:1px dashed var(--line)}
+  .oml i{flex:1;border-bottom:1px dotted #3b3b3b;transform:translateY(-3px)}
+  .oml b{color:#ff8a75;font-weight:700;white-space:nowrap}
   footer{background:#000;color:#6f695f;text-align:center;font-size:12px;padding:34px 20px 92px}
   .mbar{position:fixed;bottom:0;left:0;right:0;z-index:50;display:flex;gap:8px;background:rgba(18,18,18,.97);border-top:1px solid var(--line);padding:10px 14px}
   .mbar .btn{flex:1;font-size:14px;padding:13px 8px}
@@ -85,7 +100,11 @@
   </div>
 </div>
 
-<section>
+<div class="anchors">
+  <a href="#policy">こだわり</a><a href="#menu">メニュー</a><a href="#course">コース</a><a href="#seats">席・空間</a><a href="#info">店舗情報</a>
+</div>
+
+<section id="policy" style="padding-top:44px">
   <div class="wrap">
     <div class="eyebrow">POLICY</div>
     <h2>ケチらない焼肉屋。</h2>
@@ -93,6 +112,14 @@
       <div><b>厚切り10mmタン塩</b><p>薄いタンは出しません。噛むほどに旨い10mm厚が基準です。</p></div>
       <div><b>和牛一頭買い</b><p>まるごと仕入れるから、希少部位までこの価格で出せます。</p></div>
       <div><b>タレは継ぎ足し十年</b><p>開店から継ぎ足してきた自家製ダレ。白飯が止まりません。</p></div>
+    </div>
+    <div class="story">
+      <div class="ph" style="background-image:url('https://images.unsplash.com/photo-1529692236671-f1f6cf9683ba?w=800&q=70&auto=format&fit=crop')"></div>
+      <div>
+        <h3>店主より</h3>
+        <p>精肉店の三代目として、肉と向き合って二十年。一頭買いは手間がかかりますが、「この部位はこの厚みで切ると化ける」という発見があるから、やめられません。</p>
+        <p style="margin-top:10px">切りたてにこだわるため、肉のカットはすべて注文後。少しだけお待たせしますが、その分だけ旨いはずです。</p>
+      </div>
     </div>
   </div>
 </section>
@@ -106,6 +133,44 @@
       <div class="mi"><div class="ph" style="background-image:url('https://images.unsplash.com/photo-1544025162-d76694265947?w=600&q=70&auto=format&fit=crop')"></div><div class="tx"><h4>特上カルビ</h4><div class="pr">1,980円</div></div></div>
       <div class="mi"><div class="ph" style="background-image:url('https://images.unsplash.com/photo-1529692236671-f1f6cf9683ba?w=600&q=70&auto=format&fit=crop')"></div><div class="tx"><h4>やみつきハラミ</h4><div class="pr">1,280円</div></div></div>
       <div class="mi"><span class="bd">〆</span><div class="ph" style="background-image:url('https://images.unsplash.com/photo-1569718212165-3a8278d5f624?w=600&q=70&auto=format&fit=crop')"></div><div class="tx"><h4>盛岡冷麺</h4><div class="pr">880円</div></div></div>
+    </div>
+    <div class="omen">
+      <div>
+        <h5>タン</h5>
+        <div class="oml">厚切りタン塩（名物）<i></i><b>1,680円</b></div>
+        <div class="oml">ネギ塩タン<i></i><b>1,280円</b></div>
+        <div class="oml">タン先のやわらか煮込み<i></i><b>780円</b></div>
+        <h5>赤身・カルビ</h5>
+        <div class="oml">特上カルビ<i></i><b>1,980円</b></div>
+        <div class="oml">上ロース<i></i><b>1,580円</b></div>
+        <div class="oml">やみつきハラミ<i></i><b>1,280円</b></div>
+        <div class="oml">イチボ<i></i><b>1,480円</b></div>
+        <div class="oml">ミスジ<i></i><b>1,680円</b></div>
+      </div>
+      <div>
+        <h5>ホルモン</h5>
+        <div class="oml">シマチョウ<i></i><b>880円</b></div>
+        <div class="oml">ミノ<i></i><b>980円</b></div>
+        <div class="oml">レバー<i></i><b>780円</b></div>
+        <div class="oml">ハツ<i></i><b>780円</b></div>
+        <h5>一品・サイド</h5>
+        <div class="oml">ユッケ<i></i><b>1,280円</b></div>
+        <div class="oml">センマイ刺し<i></i><b>680円</b></div>
+        <div class="oml">ナムル五種盛り<i></i><b>580円</b></div>
+        <div class="oml">キムチ盛り合わせ<i></i><b>580円</b></div>
+      </div>
+      <div>
+        <h5>〆・ご飯</h5>
+        <div class="oml">盛岡冷麺<i></i><b>880円</b></div>
+        <div class="oml">石焼ビビンバ<i></i><b>980円</b></div>
+        <div class="oml">コムタンクッパ<i></i><b>780円</b></div>
+        <div class="oml">白飯（大・中・小）<i></i><b>380円〜</b></div>
+        <h5>お飲み物</h5>
+        <div class="oml">生ビール<i></i><b>580円</b></div>
+        <div class="oml">ハイボール<i></i><b>450円</b></div>
+        <div class="oml">マッコリ<i></i><b>600円</b></div>
+        <div class="oml">サワー各種<i></i><b>480円</b></div>
+      </div>
     </div>
     <p class="lead" style="margin-top:22px">ほか、一頭買いならではの希少部位（ミスジ・ザブトン・イチボ）は本日のおすすめ黒板でご案内。</p>
   </div>
@@ -124,7 +189,19 @@
   </div>
 </section>
 
-<section style="padding-top:0">
+<section id="seats" style="padding-top:0">
+  <div class="wrap">
+    <div class="eyebrow">SEAT</div>
+    <h2>煙を気にせず、ゆっくりどうぞ。</h2>
+    <div class="seats">
+      <div class="seat"><div class="ph" style="background-image:url('https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=700&q=70&auto=format&fit=crop')"></div><b>テーブル 40席</b><p>全卓に無煙ロースター完備。服ににおいがつきにくい設計です。</p></div>
+      <div class="seat"><div class="ph" style="background-image:url('https://images.unsplash.com/photo-1552566626-52f8b828add9?w=700&q=70&auto=format&fit=crop')"></div><b>半個室ボックス 〜6名</b><p>家族連れ・記念日利用に人気のゆったり席。</p></div>
+      <div class="seat"><div class="ph" style="background-image:url('https://images.unsplash.com/photo-1521017432531-fbd92d768814?w=700&q=70&auto=format&fit=crop')"></div><b>貸切 〜40名</b><p>会社の打ち上げなど、フロア貸切のご相談も承ります。</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="info" style="padding-top:0">
   <div class="wrap">
     <div class="eyebrow">INFO</div>
     <h2>焼肉 炎蔵</h2>

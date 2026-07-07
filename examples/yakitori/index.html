@@ -63,6 +63,21 @@
   .info th{text-align:left;color:#8a7a68;font-weight:500;padding:9px 0;width:88px;vertical-align:top}
   .info td{padding:9px 0;border-bottom:1px solid var(--line)}
   .info .ph2{border-radius:14px;min-height:220px;background:#4a3a2c url('https://images.unsplash.com/photo-1552566626-52f8b828add9?w=800&q=70&auto=format&fit=crop') center/cover}
+  .anchors{display:flex;gap:8px;overflow-x:auto;max-width:960px;margin:0 auto;padding:14px 20px;-webkit-overflow-scrolling:touch}
+  .anchors a{flex:none;border:1px solid var(--line);background:#fff;border-radius:999px;font-size:12.5px;font-weight:700;padding:8px 16px;color:#6d5f52}
+  .story{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:24px;align-items:center;margin-top:38px}
+  .story .ph{min-height:250px;border-radius:14px;background:#4a3a2c center/cover}
+  .story h3{font-family:var(--serif);font-size:19px;font-weight:800;margin-bottom:10px}
+  .story p{font-size:13.5px;color:#6d5f52}
+  .seats{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:14px;margin-top:30px}
+  .seat .ph{height:140px;border-radius:12px;background:#4a3a2c center/cover}
+  .seat b{display:block;font-size:14px;margin-top:9px}
+  .seat p{font-size:12.5px;color:#6d5f52}
+  .omen{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:8px 34px;margin-top:26px}
+  .omen h5{font-size:13px;color:#f0a06c;letter-spacing:.18em;margin:18px 0 4px;font-weight:700}
+  .oml{display:flex;justify-content:space-between;align-items:baseline;gap:10px;font-size:13.5px;padding:7px 0;border-bottom:1px dashed #4a3d30}
+  .oml i{flex:1;border-bottom:1px dotted #4a3d30;transform:translateY(-3px)}
+  .oml b{color:#f0a06c;font-weight:700;white-space:nowrap}
   footer{background:var(--sumi);color:#b8a992;text-align:center;font-size:12px;padding:34px 20px 90px}
   .mbar{position:fixed;bottom:0;left:0;right:0;z-index:50;display:flex;gap:8px;background:rgba(250,246,239,.97);border-top:1px solid var(--line);padding:10px 14px}
   .mbar .btn{flex:1;justify-content:center;font-size:14px;padding:13px}
@@ -88,7 +103,11 @@
   </div>
 </div>
 
-<section>
+<div class="anchors">
+  <a href="#kodawari">こだわり</a><a href="#menu">お品書き</a><a href="#course">宴会コース</a><a href="#seats">席・空間</a><a href="#info">店舗情報</a>
+</div>
+
+<section id="kodawari" style="padding-top:44px">
   <div class="wrap">
     <div class="eyebrow">こだわり</div>
     <h2>安くて、うまい。には理由がある。</h2>
@@ -97,10 +116,18 @@
       <div><b><span>二</span>備長炭で一気に焼く</b><p>高温の炭火で旨みを閉じ込め、外はパリッと中はジューシーに。</p></div>
       <div><b><span>三</span>生ビール399円</b><p>毎日19時まではハッピーアワー。仕事帰りの一杯にどうぞ。</p></div>
     </div>
+    <div class="story">
+      <div class="ph" style="background-image:url('https://images.unsplash.com/photo-1544025162-d76694265947?w=800&q=70&auto=format&fit=crop')"></div>
+      <div>
+        <h3>店主より</h3>
+        <p>前職は鶏肉の卸。だから鶏の目利きには自信があります。開店前に必ず備長炭を熾し、その日の炭の機嫌で火床を組み替える——そんな地味なことの積み重ねが、一本の串の差になると思っています。</p>
+        <p style="margin-top:10px">タレは開店から継ぎ足している甘辛醤油。まずは塩で、二本目からはタレでどうぞ。</p>
+      </div>
+    </div>
   </div>
 </section>
 
-<section class="dark">
+<section class="dark" id="menu">
   <div class="wrap">
     <div class="eyebrow">お品書き</div>
     <h2>名物は、五本盛り。</h2>
@@ -109,8 +136,41 @@
       <div class="mi"><div class="ph" style="background-image:url('https://images.unsplash.com/photo-1544025162-d76694265947?w=600&q=70&auto=format&fit=crop')"></div><div class="tx"><h4>大山鶏もも一枚焼き</h4><div class="pr">1,080円</div></div></div>
       <div class="mi"><div class="ph" style="background-image:url('https://images.unsplash.com/photo-1569718212165-3a8278d5f624?w=600&q=70&auto=format&fit=crop')"></div><div class="tx"><h4>〆の鶏そば</h4><div class="pr">680円</div></div></div>
     </div>
-    <div class="kushi">
-      <span>ねぎま<b>220円</b></span><span>つくね月見<b>280円</b></span><span>かわ<b>180円</b></span><span>ぼんじり<b>200円</b></span><span>白レバー<b>260円</b></span><span>砂肝<b>180円</b></span><span>ささみ梅しそ<b>240円</b></span><span>手羽先<b>280円</b></span>
+    <div class="omen">
+      <div>
+        <h5>串焼き（一本）</h5>
+        <div class="oml">ねぎま<i></i><b>220円</b></div>
+        <div class="oml">つくね月見<i></i><b>280円</b></div>
+        <div class="oml">かわ<i></i><b>180円</b></div>
+        <div class="oml">ぼんじり<i></i><b>200円</b></div>
+        <div class="oml">白レバー<i></i><b>260円</b></div>
+        <div class="oml">砂肝<i></i><b>180円</b></div>
+        <div class="oml">ささみ梅しそ<i></i><b>240円</b></div>
+        <div class="oml">せせり<i></i><b>240円</b></div>
+        <div class="oml">手羽先<i></i><b>280円</b></div>
+        <div class="oml">しいたけ肉詰め<i></i><b>260円</b></div>
+      </div>
+      <div>
+        <h5>一品料理</h5>
+        <div class="oml">鶏わさ<i></i><b>580円</b></div>
+        <div class="oml">燻製ポテトサラダ<i></i><b>480円</b></div>
+        <div class="oml">とり玄の唐揚げ<i></i><b>680円</b></div>
+        <div class="oml">鶏皮ポン酢<i></i><b>480円</b></div>
+        <div class="oml">だし巻き玉子<i></i><b>580円</b></div>
+        <div class="oml">おかわり自由の塩キャベツ<i></i><b>380円</b></div>
+      </div>
+      <div>
+        <h5>ご飯・〆</h5>
+        <div class="oml">炭火焼き親子丼<i></i><b>780円</b></div>
+        <div class="oml">鶏そぼろ丼<i></i><b>680円</b></div>
+        <div class="oml">鶏スープ茶漬け<i></i><b>580円</b></div>
+        <div class="oml">〆の鶏そば<i></i><b>680円</b></div>
+        <h5>お飲み物</h5>
+        <div class="oml">生ビール（19時まで399円）<i></i><b>549円</b></div>
+        <div class="oml">レモンサワー<i></i><b>480円</b></div>
+        <div class="oml">ハイボール<i></i><b>450円</b></div>
+        <div class="oml">日本酒 グラス<i></i><b>580円〜</b></div>
+      </div>
     </div>
   </div>
 </section>
@@ -128,7 +188,19 @@
   </div>
 </section>
 
-<section style="padding-top:0">
+<section id="seats" style="padding-top:0">
+  <div class="wrap">
+    <div class="eyebrow">席・空間</div>
+    <h2>ひとり飲みも、宴会も。</h2>
+    <div class="seats">
+      <div class="seat"><div class="ph" style="background-image:url('https://images.unsplash.com/photo-1552566626-52f8b828add9?w=700&q=70&auto=format&fit=crop')"></div><b>カウンター 8席</b><p>焼き台の目の前。おひとり様の特等席です。</p></div>
+      <div class="seat"><div class="ph" style="background-image:url('https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=700&q=70&auto=format&fit=crop')"></div><b>テーブル 26席</b><p>仲間とわいわい。人数に合わせて席を組み替えます。</p></div>
+      <div class="seat"><div class="ph" style="background-image:url('https://images.unsplash.com/photo-1521017432531-fbd92d768814?w=700&q=70&auto=format&fit=crop')"></div><b>半個室 〜8名</b><p>会社宴会に人気。週末はお早めのご予約を。</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="info" style="padding-top:0">
   <div class="wrap">
     <div class="eyebrow">店舗情報</div>
     <h2>炭火焼鳥 とり玄</h2>

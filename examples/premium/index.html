@@ -54,6 +54,13 @@
   .info th{text-align:left;color:#7d7668;font-weight:400;padding:11px 0;width:92px;vertical-align:top;letter-spacing:.14em}
   .info td{padding:11px 0;border-bottom:1px solid var(--line);color:#d8d1c2}
   .info .ph2{min-height:240px;background:#242017 url('https://images.unsplash.com/photo-1552566626-52f8b828add9?w=800&q=70&auto=format&fit=crop') center/cover}
+  .anchors{display:flex;gap:8px;overflow-x:auto;max-width:920px;margin:0 auto;padding:14px 22px;-webkit-overflow-scrolling:touch}
+  .anchors a{flex:none;border:1px solid var(--line);font-size:11.5px;letter-spacing:.18em;padding:9px 18px;color:#cfc7b6}
+  .mcat{font-family:var(--serif);color:var(--gold);font-size:13px;letter-spacing:.3em;margin:28px 0 2px}
+  .seats{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:16px;margin-top:38px}
+  .seat .ph{height:170px;background:#242017 center/cover}
+  .seat b{display:block;font-family:var(--serif);font-weight:600;font-size:14.5px;letter-spacing:.12em;margin-top:12px;color:#f4efe4}
+  .seat p{font-size:12px;color:var(--mut)}
   footer{background:#0b0e11;color:#6d675c;text-align:center;font-size:11.5px;padding:36px 20px 92px;letter-spacing:.1em}
   .mbar{position:fixed;bottom:0;left:0;right:0;z-index:50;display:flex;gap:8px;background:rgba(16,20,24,.96);border-top:1px solid var(--line);padding:10px 14px}
   .mbar .btn{flex:1;padding:14px 8px;font-size:12px}
@@ -78,7 +85,11 @@
   </div>
 </div>
 
-<section>
+<div class="anchors">
+  <a href="#kodawari">旬のこと</a><a href="#menu">献立</a><a href="#course">コース</a><a href="#seats">席・しつらえ</a><a href="#info">店舗情報</a>
+</div>
+
+<section id="kodawari" style="padding-top:56px">
   <div class="wrap">
     <div class="eyebrow">SHUN — 旬</div>
     <h2>その日いちばんの魚を、<br>その日いちばんの調理で。</h2>
@@ -92,17 +103,28 @@
   </div>
 </section>
 
-<section style="padding-top:0">
+<section id="menu" style="padding-top:0">
   <div class="wrap">
     <div class="eyebrow">OSUSUME — 献立</div>
-    <h2>本日のおすすめ</h2>
+    <h2>本日の献立より</h2>
     <div class="menu-list">
+      <div class="mcat">お造り</div>
       <div class="ml"><em>お造り盛り合わせ（二人前）</em><i></i><b>2,800円</b></div>
+      <div class="ml"><em>本鮪の漬け 山葵醤油</em><i></i><b>1,600円</b></div>
+      <div class="ml"><em>鮮魚の昆布締め</em><i></i><b>1,400円</b></div>
+      <div class="mcat">焼き物・揚げ物</div>
       <div class="ml"><em>のどぐろの塩焼き</em><i></i><b>3,200円</b></div>
       <div class="ml"><em>和牛タンの炭火焼き 山葵添え</em><i></i><b>2,600円</b></div>
-      <div class="ml"><em>季節野菜の炊き合わせ</em><i></i><b>1,400円</b></div>
+      <div class="ml"><em>銀鱈の西京焼き</em><i></i><b>2,200円</b></div>
+      <div class="ml"><em>穴子と季節野菜の天ぷら</em><i></i><b>1,800円</b></div>
+      <div class="mcat">お食事・椀</div>
       <div class="ml"><em>鯛と実山椒の土鍋ごはん</em><i></i><b>1,800円</b></div>
+      <div class="ml"><em>季節野菜の炊き合わせ</em><i></i><b>1,400円</b></div>
+      <div class="ml"><em>稲庭うどん 鴨だし</em><i></i><b>1,200円</b></div>
+      <div class="mcat">お酒</div>
       <div class="ml"><em>本日の日本酒 三種呑み比べ</em><i></i><b>1,600円</b></div>
+      <div class="ml"><em>季節の純米 グラス</em><i></i><b>900円〜</b></div>
+      <div class="ml"><em>瓶ビール／果実酒</em><i></i><b>800円／700円</b></div>
     </div>
   </div>
 </section>
@@ -121,7 +143,19 @@
   </div>
 </section>
 
-<section>
+<section id="seats">
+  <div class="wrap">
+    <div class="eyebrow">SEKI — 席・しつらえ</div>
+    <h2>静けさまで、ごちそう。</h2>
+    <div class="seats">
+      <div class="seat"><div class="ph" style="background-image:url('https://images.unsplash.com/photo-1552566626-52f8b828add9?w=700&q=70&auto=format&fit=crop')"></div><b>カウンター 六席</b><p>店主の手元を眺めながら。おひとりの晩酌にも。</p></div>
+      <div class="seat"><div class="ph" style="background-image:url('https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=700&q=70&auto=format&fit=crop')"></div><b>個室 四室（2〜8名）</b><p>すべて扉付きの完全個室。接待・顔合わせに。</p></div>
+      <div class="seat"><div class="ph" style="background-image:url('https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=700&q=70&auto=format&fit=crop')"></div><b>貸切 〜二十名</b><p>ご法要・お祝いの席など、貸切のご相談も承ります。</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="info" style="padding-top:0">
   <div class="wrap">
     <div class="eyebrow">INFO — 店舗情報</div>
     <h2>和肴 燈火</h2>
