@@ -173,6 +173,8 @@
 
   /* referral intro box */
   .introbox{background:var(--green-50);border:1px solid var(--green-100);border-radius:12px;padding:14px 15px;font-size:13.5px;line-height:1.85;white-space:pre-wrap;color:var(--ink);margin-top:8px}
+  .reg-done{display:none;margin-top:10px;background:var(--green-100);color:var(--green-900);border-radius:10px;padding:11px 14px;font-size:12.5px;font-weight:700;line-height:1.6}
+  .reg-done.show{display:block;animation:fade .3s ease both}
   .sharerow{display:grid;gap:10px;margin-top:12px}
   @media(min-width:520px){.sharerow{grid-template-columns:1fr 1fr}}
   .toast{position:fixed;left:50%;bottom:96px;transform:translateX(-50%) translateY(14px);background:var(--ink);color:#fff;font-size:13px;font-weight:600;padding:11px 20px;border-radius:999px;box-shadow:var(--sh-h);opacity:0;pointer-events:none;transition:opacity .28s,transform .28s;z-index:80}
@@ -512,7 +514,7 @@
           </ul>
         </div>
         <div class="fld">
-          <label class="q" for="f_ref_name">あなたのお名前（紹介者）<span class="req">必須</span><span class="opt">ギフトのお届け確認用</span></label>
+          <label class="q" for="f_ref_name">① あなたのお名前（紹介者）<span class="req">必須</span><span class="opt">ギフトのお届け確認用</span></label>
           <input type="text" id="f_ref_name" autocomplete="name" placeholder="例）佐藤 花子" />
           <div class="err" id="e_ref_name">お名前をご入力ください。</div>
         </div>
@@ -520,10 +522,14 @@
           <label class="q" for="f_ref_contact">ギフト送付用のご連絡先<span class="req">必須</span><span class="opt">メール or LINEなど</span></label>
           <input type="text" id="f_ref_contact" placeholder="例）mail@example.com ／ LINE ID など" />
           <div class="err" id="e_ref_contact">ご連絡先をご入力ください。</div>
+          <button type="button" class="btn btn-primary btn-lg" id="registerRef" style="margin-top:14px">この内容で紹介を登録する</button>
+          <div class="hint">登録すると、ギフトの対象になります（面談完了後にお渡し）。先に登録してから、下のURLを送ってください。</div>
+          <div class="err" id="e_ref_submit" style="text-align:center">登録に失敗しました。時間をおいて再度お試しください。</div>
+          <div class="reg-done" id="regDone">✓ 紹介を登録しました。次に、下の紹介文・URLをオーナーへ送ってください。</div>
         </div>
         <div class="fld">
-          <label class="q">① オーナー・店長さんへ送る紹介文</label>
-          <div class="hint" style="margin-top:0;margin-bottom:8px">下の文章をコピーして、LINEなどで送ってください。文中のURLからオーナーが直接お申し込みできます。</div>
+          <label class="q">② オーナー・店長さんへ送る紹介文</label>
+          <div class="hint" style="margin-top:0;margin-bottom:8px">下の文章をコピーして、LINEなどで送ってください。文中のURLからオーナーが直接お申し込みでき、<b>あなたの紹介として記録されます</b>。</div>
           <div class="introbox" id="introText"></div>
           <div class="sharerow">
             <button type="button" class="btn btn-ghost" id="copyIntro">📋 紹介文をコピー</button>
@@ -620,16 +626,19 @@
   var FORM_ENDPOINT = ''; // 例）'https://script.google.com/macros/s/AKfy...../exec'
   /* ===================================================== */
 
-  // --- URLパラメータ（流入元・店舗コード）---
+  // --- URLパラメータ（流入元・店舗コード・紹介者）---
   var params = new URLSearchParams(location.search);
   var SRC   = params.get('source') || params.get('utm_source') || 'direct';
   var STORE = params.get('store') || params.get('store_code') || '';
   var STORE_NAME = params.get('store_name') || '';
+  var REF   = params.get('ref') || '';   // このオーナーを紹介したスタッフ名（紹介経由の申込に付与）
 
-  // オーナー用共有URL（スタッフ→オーナー）
+  // オーナー用共有URL（スタッフ→オーナー）。紹介者名を ref= に埋め込み、申込と自動でひもづける
   function ownerShareURL(){
     var u = location.origin + location.pathname + '?source=referral';
     if(STORE) u += '&store=' + encodeURIComponent(STORE);
+    var rn = document.getElementById('f_ref_name');
+    if(rn && rn.value && rn.value.trim()) u += '&ref=' + encodeURIComponent(rn.value.trim());
     return u;
   }
 
@@ -711,6 +720,39 @@
     return txt;
   }
 
+  // 紹介者名を入力したら、紹介文（＝共有URLの ref=）を随時つくり直す
+  document.getElementById('f_ref_name').addEventListener('input', function(){
+    if(getStatus()==='referral') buildIntro();
+  });
+
+  // 紹介を登録する（スタッフの名前・ギフト送付先をシートへ保存）
+  document.getElementById('registerRef').addEventListener('click', function(){
+    var ok = true;
+    if(!val('f_ref_name')){ showErr('e_ref_name', true); ok=false; } else showErr('e_ref_name', false);
+    if(!val('f_ref_contact')){ showErr('e_ref_contact', true); ok=false; } else showErr('e_ref_contact', false);
+    showErr('e_ref_submit', false);
+    if(!ok){ var fe=document.querySelector('#b_referral .err.show'); if(fe) fe.scrollIntoView({behavior:'smooth',block:'center'}); return; }
+
+    var btn = this; btn.disabled = true; btn.textContent = '登録中…';
+    var data = collect('referral');
+    var done = function(){
+      track('referral_register', {role:getRole()});
+      buildIntro(); // ref= 付きURLに更新
+      btn.textContent = '✓ 登録しました';
+      document.getElementById('regDone').classList.add('show');
+      document.getElementById('regDone').scrollIntoView({behavior:'smooth', block:'center'});
+    };
+    if(FORM_ENDPOINT){
+      fetch(FORM_ENDPOINT, {method:'POST', body:JSON.stringify(data)})
+        .then(function(){ done(); })
+        .catch(function(){ openMailFallback(data); done(); });
+    } else {
+      console.log('[monitor referral]', data);
+      openMailFallback(data);
+      done();
+    }
+  });
+
   // コピー
   document.getElementById('copyIntro').addEventListener('click', function(){
     var txt = document.getElementById('introText').textContent;
@@ -787,7 +829,7 @@
     var prefer = document.querySelector('input[name=prefer]:checked');
     var data = {
       type:'submission',
-      source:SRC, store:STORE, store_name_param:STORE_NAME,
+      source:SRC, store:STORE, store_name_param:STORE_NAME, ref:REF,
       ts:new Date().toISOString(),
       status:st, role:getRole(), store_name:val('f_store'),
     };
@@ -799,6 +841,10 @@
       data.time = times.join(' / ');
       data.time_note = val('f_time_note');
       data.consent = document.getElementById('f_consent').checked ? 'yes' : 'no';
+    } else if(st==='referral'){
+      data.ref_name = val('f_ref_name');
+      data.ref_contact = val('f_ref_contact');
+      data.ref = val('f_ref_name');   // 紹介者自身
     } else if(st==='none'){
       data.note = val('f_none_note');
     }
@@ -839,7 +885,8 @@
   function openMailFallback(data){
     try{
       var lines = Object.keys(data).map(function(k){ return k+': '+data[k]; }).join('\n');
-      var subj = '【モニター応募】'+(data.store_name||'')+' / '+(data.role||'');
+      var head = data.status==='referral' ? '【モニター紹介登録】'+(data.ref_name||'') : '【モニター応募】'+(data.store_name||'')+' / '+(data.role||'');
+      var subj = head;
       var url = 'mailto:shunsaibou7740@gmail.com?subject='+encodeURIComponent(subj)+'&body='+encodeURIComponent(lines);
       // 自動で開くと確認画面が乱れるため、未設定時のみ開く
       if(!FORM_ENDPOINT){ window.location.href = url; }
