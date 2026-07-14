@@ -1,0 +1,794 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="robots" content="noindex" />
+<title>3店舗限定 店舗業務の見える化モニター｜旬彩坊 経営サポート</title>
+<meta name="description" content="旬彩坊お取引店 限定。開店・閉店のチェックリストを日本語・英語・中国語で無料作成。オーナー・店長さんへ15分のご説明から。" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700&family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet" />
+<style>
+  :root{
+    --green-900:#0f5c34; --green-800:#13713f; --green-700:#1e8e4e; --green-600:#34a853;
+    --green-100:#e6f4ea; --green-50:#f3faf5;
+    --blue:#4285f4; --blue-d:#1a73e8; --red:#ea4335; --red-d:#c5221f;
+    --yellow:#fbbc04; --yellow-d:#f9ab00;
+    --ink:#202124; --muted:#5f6368; --line:#e4e9e4;
+    --bg:#ffffff; --soft:#f5f8f5;
+    --r:16px; --r-lg:24px; --maxw:720px;
+    --head:"Noto Sans JP",system-ui,sans-serif;
+    --sans:"Noto Sans JP",system-ui,sans-serif;
+    --pop:"Poppins","Noto Sans JP",sans-serif;
+    --sh:0 1px 2px rgba(60,64,67,.10),0 1px 3px rgba(60,64,67,.06);
+    --sh-h:0 8px 22px rgba(60,64,67,.16);
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{font-family:var(--sans);color:var(--ink);background:var(--bg);line-height:1.85;-webkit-font-smoothing:antialiased;font-size:16px;overflow-x:hidden;padding-bottom:78px}
+  a{color:inherit;text-decoration:none}
+  svg{display:block}
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 20px}
+  section{padding:48px 0;position:relative}
+  h2{font-family:var(--head);font-size:clamp(22px,5.4vw,30px);font-weight:900;line-height:1.5;letter-spacing:.01em}
+  .eyebrow{display:inline-flex;align-items:center;gap:8px;font-family:var(--pop);font-size:12px;font-weight:600;letter-spacing:.08em;color:var(--green-700);text-transform:uppercase;margin-bottom:14px}
+  .eyebrow::before{content:"";width:20px;height:2px;background:var(--green-600);border-radius:2px}
+  .lead{color:var(--muted);margin-top:14px;font-size:15px}
+  .reveal{opacity:0;transform:translateY(20px);transition:opacity .6s cubic-bezier(.2,.7,.2,1),transform .6s cubic-bezier(.2,.7,.2,1)}
+  .reveal.in{opacity:1;transform:none}
+
+  /* buttons */
+  .btn{display:inline-flex;align-items:center;justify-content:center;gap:9px;font-family:var(--head);font-weight:700;border-radius:999px;padding:15px 26px;font-size:16px;cursor:pointer;border:none;line-height:1.2;box-shadow:var(--sh);transition:transform .18s,box-shadow .18s,background .18s;text-align:center}
+  .btn:hover{transform:translateY(-2px);box-shadow:var(--sh-h)}
+  .btn:disabled{opacity:.5;cursor:not-allowed;transform:none;box-shadow:var(--sh)}
+  .btn-primary{background:var(--green-700);color:#fff}
+  .btn-line{background:#06c755;color:#fff}
+  .btn-blue{background:var(--blue);color:#fff}
+  .btn-ghost{background:#fff;color:var(--green-800);border:1.5px solid var(--green-600);box-shadow:none}
+  .btn-ghost:hover{background:var(--green-50);box-shadow:var(--sh)}
+  .btn-lg{width:100%;padding:17px 26px;font-size:17px}
+
+  /* header */
+  header{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.92);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+  .nav{display:flex;align-items:center;justify-content:space-between;height:60px}
+  .brand{display:flex;align-items:center;gap:10px;font-family:var(--head)}
+  .brand .mark{width:34px;height:34px}
+  .brand b{font-size:16px;font-weight:900;letter-spacing:.01em;display:block;line-height:1.1}
+  .brand small{display:block;font-size:10.5px;color:var(--muted);font-weight:500}
+  .back{font-size:12.5px;color:var(--muted);display:inline-flex;align-items:center;gap:5px}
+
+  /* hero */
+  .hero{background:radial-gradient(circle at 88% 6%, #eef6ff 0, transparent 46%),radial-gradient(circle at 4% 82%, #fff7e0 0, transparent 40%),linear-gradient(180deg,#f5faf5,#ffffff);padding:34px 0 30px;overflow:hidden}
+  .htag{display:inline-flex;align-items:center;gap:8px;background:#fff;border:1px solid var(--green-100);color:var(--green-800);font-size:12.5px;font-weight:700;padding:8px 15px;border-radius:999px;box-shadow:var(--sh);margin-bottom:16px}
+  .htag .pin{width:8px;height:8px;border-radius:50%;background:var(--red)}
+  .hero h1{font-family:var(--head);font-size:clamp(26px,7vw,40px);line-height:1.42;font-weight:900;letter-spacing:.01em}
+  .hero h1 .u{background:linear-gradient(transparent 60%,#cdeccf 60%)}
+  .hero .sub{margin-top:16px;font-size:clamp(14px,3.6vw,16px);color:var(--muted)}
+  .hero-cta{margin-top:24px}
+  .hero-note{margin-top:12px;font-size:12px;color:var(--muted)}
+  .hero-chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:20px}
+  .hero-chips span{background:#fff;border:1px solid var(--line);border-radius:999px;padding:7px 13px;font-size:12.5px;font-weight:600;color:var(--green-800);display:inline-flex;align-items:center;gap:6px;box-shadow:var(--sh)}
+  .hero-chips svg{width:14px;height:14px;color:var(--green-600)}
+
+  /* store banner */
+  .storebar{background:var(--green-50);border:1px dashed var(--green-600);border-radius:12px;padding:10px 14px;margin-top:18px;font-size:12.5px;color:var(--green-800);display:none;align-items:center;gap:8px}
+  .storebar.show{display:flex}
+  .storebar b{font-weight:700}
+
+  /* ribbon */
+  .ribbon{background:var(--green-700);color:#fff}
+  .ribbon .inner{display:flex;gap:10px;align-items:center;justify-content:center;flex-wrap:wrap;padding:15px 18px;text-align:center}
+  .ribbon b{font-family:var(--head);font-weight:700;font-size:clamp(14px,4vw,17px)}
+  .ribbon em{font-style:normal;background:rgba(255,255,255,.18);padding:2px 10px;border-radius:8px}
+
+  /* problem / merit cards */
+  .list2{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:26px}
+  .icard{background:#fff;border:1px solid var(--line);border-radius:var(--r);padding:16px 15px;box-shadow:var(--sh)}
+  .icard .ic{width:40px;height:40px;border-radius:11px;display:grid;place-items:center;margin-bottom:11px}
+  .icard .ic svg{width:21px;height:21px;color:#fff}
+  .icard h3{font-family:var(--head);font-size:14.5px;font-weight:700;margin-bottom:4px;line-height:1.5}
+  .icard p{font-size:12.5px;color:var(--muted);line-height:1.7}
+  .ic-red{background:var(--red)} .ic-blue{background:var(--blue)} .ic-green{background:var(--green-600)} .ic-yellow{background:var(--yellow-d)}
+
+  .merit{background:var(--soft)}
+  .mrow{display:flex;gap:14px;align-items:flex-start;background:#fff;border:1px solid var(--line);border-radius:var(--r);padding:16px 16px;box-shadow:var(--sh);margin-top:14px}
+  .mrow .mi{width:44px;height:44px;border-radius:12px;flex:none;display:grid;place-items:center;background:var(--green-100)}
+  .mrow .mi svg{width:23px;height:23px;color:var(--green-700)}
+  .mrow h3{font-family:var(--head);font-size:15.5px;font-weight:700;margin-bottom:3px}
+  .mrow p{font-size:13px;color:var(--muted);line-height:1.7}
+
+  /* offer box */
+  .offer{background:#fff;border:1px solid var(--line);border-radius:var(--r-lg);box-shadow:var(--sh);padding:24px 20px;margin-top:22px;position:relative}
+  .offer .stamp{position:absolute;top:-16px;left:50%;transform:translateX(-50%);background:var(--green-700);color:#fff;font-family:var(--head);font-weight:700;font-size:13px;padding:7px 20px;border-radius:999px;white-space:nowrap;box-shadow:var(--sh)}
+  .offer h3{font-family:var(--head);font-size:16px;font-weight:900;margin:6px 0 14px;text-align:center}
+  .checklist{list-style:none;display:grid;gap:10px}
+  .checklist li{display:flex;gap:10px;align-items:flex-start;font-size:14px}
+  .checklist li svg{width:20px;height:20px;color:var(--green-600);flex:none;margin-top:2px}
+  .cond{margin-top:18px;background:var(--green-50);border-radius:12px;padding:14px 16px;font-size:12.5px;color:var(--green-900)}
+  .cond b{font-weight:700}
+  .cond ul{margin:8px 0 0 18px;display:grid;gap:5px}
+  .cond li{line-height:1.7}
+
+  /* referral gift */
+  .gift{background:linear-gradient(180deg,#fffdf3,#fff);border:1px solid var(--yellow);border-radius:var(--r-lg);box-shadow:var(--sh);padding:24px 20px;margin-top:8px}
+  .gift .amt{display:inline-flex;align-items:center;gap:10px;font-family:var(--pop);font-weight:700;font-size:26px;color:var(--yellow-d)}
+  .gift .amt svg{width:30px;height:30px}
+  .gift h3{font-family:var(--head);font-size:17px;font-weight:900;margin:4px 0 10px}
+  .gift p{font-size:13.5px;color:var(--muted)}
+  .gift .rules{margin-top:14px;font-size:12px;color:var(--muted);border-top:1px dashed var(--line);padding-top:12px}
+  .gift .rules ul{margin:6px 0 0 18px;display:grid;gap:4px}
+  .gift .rules li{line-height:1.65}
+
+  /* form */
+  .formsec{background:var(--soft)}
+  .formcard{background:#fff;border:1px solid var(--line);border-radius:var(--r-lg);box-shadow:var(--sh);padding:24px 20px;margin-top:22px}
+  .fld{margin-bottom:20px}
+  .fld > label.q{display:block;font-family:var(--head);font-weight:700;font-size:15px;margin-bottom:10px;line-height:1.6}
+  .fld .req{color:var(--red);font-size:12px;font-weight:700;margin-left:6px}
+  .fld .opt{color:var(--muted);font-size:11.5px;font-weight:500;margin-left:6px}
+  .fld input[type=text],.fld input[type=tel],.fld input[type=email],.fld textarea,.fld select{width:100%;border:1.5px solid var(--line);border-radius:12px;padding:13px 14px;font-family:var(--sans);font-size:16px;color:var(--ink);background:#fff;transition:border-color .18s,box-shadow .18s}
+  .fld input:focus,.fld textarea:focus,.fld select:focus{outline:none;border-color:var(--green-600);box-shadow:0 0 0 3px rgba(52,168,83,.14)}
+  .fld textarea{resize:vertical;min-height:90px;line-height:1.7}
+  .fld .hint{font-size:12px;color:var(--muted);margin-top:6px;line-height:1.6}
+  .opts{display:grid;gap:10px}
+  .opt-row{display:flex;align-items:flex-start;gap:11px;border:1.5px solid var(--line);border-radius:12px;padding:13px 14px;cursor:pointer;transition:border-color .16s,background .16s}
+  .opt-row:hover{border-color:var(--green-600);background:var(--green-50)}
+  .opt-row input{margin-top:3px;width:18px;height:18px;accent-color:var(--green-700);flex:none}
+  .opt-row .ot{font-size:14px;line-height:1.55}
+  .opt-row.checked{border-color:var(--green-600);background:var(--green-50)}
+  .chips{display:flex;flex-wrap:wrap;gap:9px}
+  .chips label{border:1.5px solid var(--line);border-radius:999px;padding:9px 15px;font-size:13.5px;cursor:pointer;transition:.16s;display:inline-flex;align-items:center;gap:7px}
+  .chips label:hover{border-color:var(--green-600)}
+  .chips input{display:none}
+  .chips label.checked{border-color:var(--green-600);background:var(--green-50);color:var(--green-800);font-weight:700}
+  .consent{display:flex;gap:11px;align-items:flex-start;background:var(--green-50);border-radius:12px;padding:13px 14px}
+  .consent input{margin-top:3px;width:18px;height:18px;accent-color:var(--green-700);flex:none}
+  .consent label{font-size:12.5px;color:var(--green-900);line-height:1.7}
+  .consent a{color:var(--green-700);text-decoration:underline}
+  .err{color:var(--red-d);font-size:12.5px;margin-top:8px;display:none}
+  .err.show{display:block}
+  .branch{display:none} .branch.show{display:block;animation:fade .32s ease both}
+  @keyframes fade{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+
+  /* referral intro box */
+  .introbox{background:var(--green-50);border:1px solid var(--green-100);border-radius:12px;padding:14px 15px;font-size:13.5px;line-height:1.85;white-space:pre-wrap;color:var(--ink);margin-top:8px}
+  .sharerow{display:grid;gap:10px;margin-top:12px}
+  @media(min-width:520px){.sharerow{grid-template-columns:1fr 1fr}}
+  .toast{position:fixed;left:50%;bottom:96px;transform:translateX(-50%) translateY(14px);background:var(--ink);color:#fff;font-size:13px;font-weight:600;padding:11px 20px;border-radius:999px;box-shadow:var(--sh-h);opacity:0;pointer-events:none;transition:opacity .28s,transform .28s;z-index:80}
+  .toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
+
+  /* thanks */
+  .thanks{display:none;text-align:center;padding:10px 4px}
+  .thanks.show{display:block;animation:fade .35s ease both}
+  .thanks .tk{width:66px;height:66px;border-radius:50%;background:var(--green-100);display:grid;place-items:center;margin:0 auto 16px}
+  .thanks .tk svg{width:34px;height:34px;color:var(--green-700)}
+  .thanks h3{font-family:var(--head);font-size:21px;font-weight:900;margin-bottom:10px}
+  .thanks p{font-size:14px;color:var(--muted)}
+
+  /* faq */
+  .faq{border:1px solid var(--line);border-radius:14px;background:#fff;box-shadow:var(--sh);margin-top:12px;overflow:hidden}
+  .faq summary{list-style:none;cursor:pointer;padding:16px 18px;font-family:var(--head);font-weight:700;font-size:14.5px;display:flex;justify-content:space-between;align-items:center;gap:12px}
+  .faq summary::-webkit-details-marker{display:none}
+  .faq .chev{transition:transform .22s;color:var(--green-700);flex:none}
+  .faq[open] summary .chev{transform:rotate(180deg)}
+  .faq .fa-body{padding:0 18px 16px;font-size:13.5px;color:var(--muted);line-height:1.85}
+  .notice{margin-top:20px;background:#fff;border:1px solid var(--line);border-radius:14px;padding:16px 18px;font-size:12px;color:var(--muted);line-height:1.8}
+  .notice b{color:var(--ink)}
+
+  /* footer */
+  footer{background:#0e2a1a;color:#cfe6d6;padding:34px 0 26px;font-size:13px}
+  footer .fbrand{font-family:var(--head);font-weight:900;color:#fff;font-size:16px;margin-bottom:6px}
+  footer a{color:#a7d3b5}
+  .ops-note{margin-top:10px;font-size:11px;color:#7fa98c}
+
+  /* sticky mobile cta */
+  .mcta{position:fixed;left:0;right:0;bottom:0;z-index:60;background:rgba(255,255,255,.96);backdrop-filter:blur(8px);border-top:1px solid var(--line);padding:10px 16px calc(10px + env(safe-area-inset-bottom))}
+  .mcta .btn{width:100%}
+
+  @media(min-width:560px){
+    .list2{gap:14px}
+    .hero-cta .btn{width:auto;min-width:280px}
+  }
+  @media(min-width:821px){
+    .mcta{display:none}
+    body{padding-bottom:0}
+  }
+  @media(max-width:380px){
+    .list2{grid-template-columns:1fr}
+  }
+  @media(prefers-reduced-motion:reduce){
+    .reveal{opacity:1!important;transform:none!important;transition:none}
+  }
+</style>
+</head>
+<body>
+
+<!-- ===== HEADER ===== -->
+<header>
+  <div class="wrap nav">
+    <a class="brand" href="#top">
+      <svg class="mark" viewBox="0 0 44 44"><rect width="44" height="44" rx="12" fill="#1e8e4e"/><path d="M22 33c-6 0-10-4.5-10-10 0-4.5 2.5-7.5 7-8 4-.5 6-1 8-3.5 1.2 2 2 4.5 2 8 0 7-3.5 13.5-7 13.5Z" fill="#a8e0b6"/><path d="M22 33V16" stroke="#1e8e4e" stroke-width="2" stroke-linecap="round"/></svg>
+      <span><b>店舗業務の見える化モニター</b><small>旬彩坊 経営サポート</small></span>
+    </a>
+    <a class="back" href="../">サポートTOP ›</a>
+  </div>
+</header>
+<span id="top"></span>
+
+<!-- ===== HERO ===== -->
+<section class="hero">
+  <div class="wrap">
+    <div class="htag"><span class="pin"></span>3店舗限定 ／ 旬彩坊お取引店 専用</div>
+    <h1>開店・閉店の「やること」を<br><span class="u">スマホでチェック</span>。<br>専用リストを<span class="u">無料</span>で作ります。</h1>
+    <p class="sub">日本語で作れば、英語・中国語でもそのまま表示。外国人スタッフや新人さんも、初日から迷いません。まずはオーナー・店長さんへ15分のご説明から。</p>
+
+    <div class="storebar" id="storebar">📍 <span><b id="storebarName">お取引店</b> 様 専用のご案内ページです</span></div>
+
+    <div class="hero-cta">
+      <a class="btn btn-primary btn-lg" href="#form" data-cta="hero">30秒で回答する（無料）</a>
+    </div>
+    <p class="hero-note">※ しつこい営業はしません。まずは合うかどうかのご相談から。</p>
+
+    <div class="hero-chips">
+      <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6 9 17l-5-5"/></svg>初回無料</span>
+      <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6 9 17l-5-5"/></svg>自動課金なし</span>
+      <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6 9 17l-5-5"/></svg>日・英・中 対応</span>
+    </div>
+  </div>
+</section>
+
+<!-- ===== RIBBON ===== -->
+<div class="ribbon">
+  <div class="wrap inner">
+    <b>継続は希望店だけ。<em>自動で課金されることはありません。</em></b>
+  </div>
+</div>
+
+<!-- ===== PROBLEMS ===== -->
+<section>
+  <div class="wrap">
+    <div class="eyebrow reveal">よくあるお悩み</div>
+    <h2 class="reveal">開店・閉店の作業、<br>「言った・聞いてない」が<br>起きていませんか？</h2>
+    <div class="list2">
+      <div class="icard reveal">
+        <div class="ic ic-red"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 9v4M12 17h.01"/><path d="M10.3 3.9 1.8 18a2 2 0 0 0 1.7 3h17a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0Z"/></svg></div>
+        <h3>伝え漏れ</h3>
+        <p>「あれ、やっておいて」が口頭だけ。人によって抜ける作業がバラバラ。</p>
+      </div>
+      <div class="icard reveal">
+        <div class="ic ic-yellow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 3a2.8 2.8 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5Z"/></svg></div>
+        <h3>引継ぎミス</h3>
+        <p>紙のメモやLINEが流れて、誰が何をやったか後から追えない。</p>
+      </div>
+      <div class="icard reveal">
+        <div class="ic ic-blue"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 8h14M5 8a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v1a2 2 0 0 1-2 2M12 8v13M8 21h8"/></svg></div>
+        <h3>外国人スタッフへの説明</h3>
+        <p>日本語だけの手順書。毎回そばで教えるのに時間がかかる。</p>
+      </div>
+      <div class="icard reveal">
+        <div class="ic ic-green"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></div>
+        <h3>確認したか分からない</h3>
+        <p>ガス・鍵・冷蔵庫…「本当にやった？」を後から確認できない。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== MERITS ===== -->
+<section class="merit">
+  <div class="wrap">
+    <div class="eyebrow reveal">導入するとこうなります</div>
+    <h2 class="reveal">作るのは1回。<br>あとはスマホで毎日ラクに。</h2>
+    <div class="mrow reveal">
+      <div class="mi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 8h14M9 5h6M4 12h16M6 16h12M8 20h8"/></svg></div>
+      <div><h3>日本語で作れば、英語・中国語でも表示</h3><p>翻訳の手間なし。外国人スタッフも自分の言語でチェックできます。</p></div>
+    </div>
+    <div class="mrow reveal">
+      <div class="mi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg></div>
+      <div><h3>誰が、いつ確認したかが残る</h3><p>チェックした人と時刻が記録に。「やった・やってない」で揉めません。</p></div>
+    </div>
+    <div class="mrow reveal">
+      <div class="mi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2 4 6v6c0 5 3.5 8 8 10 4.5-2 8-5 8-10V6Z"/><path d="m9 12 2 2 4-4"/></svg></div>
+      <div><h3>最初の設定は旬彩坊がサポート</h3><p>お店の作業を聞き取って、チェックリストの形にするところまでお手伝いします。</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== OFFER ===== -->
+<section>
+  <div class="wrap">
+    <div class="eyebrow reveal">無料モニターの内容</div>
+    <h2 class="reveal">3店舗限定でお試しいただけます。</h2>
+    <div class="offer reveal">
+      <div class="stamp">初回 無料</div>
+      <h3>ご提供する内容</h3>
+      <ul class="checklist">
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6 9 17l-5-5"/></svg>オーナー・意思決定者への15分ヒアリング</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6 9 17l-5-5"/></svg>店舗専用チェックリストを1〜2本作成</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6 9 17l-5-5"/></svg>日本語・英語・中国語で表示</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6 9 17l-5-5"/></svg>初期設定のサポート</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6 9 17l-5-5"/></svg>30〜60日間のモニター利用</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6 9 17l-5-5"/></svg>有料継続は希望店のみ／自動課金なし</li>
+      </ul>
+      <div class="cond">
+        <b>ご参加の条件</b>
+        <ul>
+          <li>オーナーまたは意思決定者が初回面談に参加</li>
+          <li>実際に現場スタッフが利用する</li>
+          <li>2週間後と終了時に、かんたんなフィードバック</li>
+          <li>※ まったく利用されない場合は、モニターを終了することがあります</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== REFERRAL GIFT ===== -->
+<section class="merit">
+  <div class="wrap">
+    <div class="eyebrow reveal">現場スタッフのみなさまへ</div>
+    <h2 class="reveal">オーナー・店長さんへ<br>つないでくれた方に、お礼。</h2>
+    <div class="gift reveal">
+      <div class="amt">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="8" width="18" height="13" rx="2"/><path d="M3 12h18M12 8v13M12 8S9.5 3.5 7 5.5 8 8 12 8Zm0 0s2.5-4.5 5-2.5S16 8 12 8Z"/></svg>
+        Amazonギフト 1,000円分
+      </div>
+      <h3>「うちのオーナーに紹介したよ」でOK</h3>
+      <p>あなたが紹介したオーナー・店長さんとの<b>15分の面談が完了</b>したら、紹介してくれたあなたにAmazonギフト1,000円分をお渡しします。</p>
+      <div class="rules">
+        <b>特典の条件</b>
+        <ul>
+          <li>先着10名／1店舗につき1名まで</li>
+          <li>旬彩坊の既存お取引店であること</li>
+          <li>オーナー・経営者・店長など「導入を判断できる方」との面談完了後にお渡し</li>
+          <li>連絡先を送っただけ・チラシを渡しただけは対象外</li>
+          <li>オーナーご本人の自己応募は、紹介特典の対象外です</li>
+        </ul>
+      </div>
+    </div>
+    <div style="text-align:center;margin-top:20px" class="reveal">
+      <a class="btn btn-primary btn-lg" href="#form" data-cta="gift">紹介する／回答する</a>
+    </div>
+  </div>
+</section>
+
+<!-- ===== FORM ===== -->
+<section class="formsec" id="form">
+  <div class="wrap">
+    <div class="eyebrow reveal">30秒で回答</div>
+    <h2 class="reveal">まずは、あてはまるものを選ぶだけ。</h2>
+    <p class="lead reveal">お名前や連絡先は、必要な方だけご入力ください。</p>
+
+    <div class="formcard reveal" id="formcard">
+      <!-- Q1 店舗名 -->
+      <div class="fld">
+        <label class="q" for="f_store">お店の名前<span class="req">必須</span></label>
+        <input type="text" id="f_store" autocomplete="organization" placeholder="例）居酒屋 旬" />
+        <div class="err" id="e_store">お店の名前をご入力ください。</div>
+      </div>
+
+      <!-- Q2 立場 -->
+      <div class="fld">
+        <label class="q">あなたのお立場<span class="req">必須</span></label>
+        <div class="opts" id="q_role">
+          <label class="opt-row"><input type="radio" name="role" value="オーナー・経営者"><span class="ot">オーナー・経営者</span></label>
+          <label class="opt-row"><input type="radio" name="role" value="店長・責任者"><span class="ot">店長・責任者</span></label>
+          <label class="opt-row"><input type="radio" name="role" value="現場スタッフ"><span class="ot">現場スタッフ</span></label>
+        </div>
+        <div class="err" id="e_role">お立場を選んでください。</div>
+      </div>
+
+      <!-- Q3 状況 -->
+      <div class="fld">
+        <label class="q">今のご状況に近いものは？<span class="req">必須</span></label>
+        <div class="opts" id="q_status">
+          <label class="opt-row"><input type="radio" name="status" value="owner"><span class="ot">私が判断できる立場。話を聞いてみたい</span></label>
+          <label class="opt-row"><input type="radio" name="status" value="referral"><span class="ot">オーナー・責任者に紹介できる</span></label>
+          <label class="opt-row"><input type="radio" name="status" value="demo"><span class="ot">まずはデモだけ見たい</span></label>
+          <label class="opt-row"><input type="radio" name="status" value="none"><span class="ot">今回は興味なし</span></label>
+        </div>
+        <div class="err" id="e_status">ご状況を選んでください。</div>
+      </div>
+
+      <!-- ===== BRANCH: OWNER ===== -->
+      <div class="branch" id="b_owner">
+        <div class="fld">
+          <label class="q" for="f_name">お名前<span class="req">必須</span></label>
+          <input type="text" id="f_name" autocomplete="name" placeholder="例）山田 太郎" />
+          <div class="err" id="e_name">お名前をご入力ください。</div>
+        </div>
+        <div class="fld">
+          <label class="q">ご連絡先<span class="req">必須</span><span class="opt">電話・メールのどちらかでOK</span></label>
+          <input type="tel" id="f_tel" autocomplete="tel" placeholder="電話番号（例：090-1234-5678）" style="margin-bottom:10px" />
+          <input type="email" id="f_email" autocomplete="email" placeholder="メールアドレス（例：mail@example.com）" />
+          <div class="err" id="e_contact">電話番号かメールアドレスのどちらかをご入力ください。</div>
+        </div>
+        <div class="fld">
+          <label class="q">希望する連絡方法<span class="opt">任意</span></label>
+          <div class="chips" id="q_prefer">
+            <label><input type="radio" name="prefer" value="LINE">LINE</label>
+            <label><input type="radio" name="prefer" value="電話">電話</label>
+            <label><input type="radio" name="prefer" value="メール">メール</label>
+            <label><input type="radio" name="prefer" value="どれでも">どれでも</label>
+          </div>
+        </div>
+        <div class="fld">
+          <label class="q">面談しやすい曜日・時間帯<span class="opt">任意・複数可</span></label>
+          <div class="chips" id="q_time">
+            <label><input type="checkbox" name="time" value="平日 午前">平日 午前</label>
+            <label><input type="checkbox" name="time" value="平日 午後">平日 午後</label>
+            <label><input type="checkbox" name="time" value="平日 夜">平日 夜</label>
+            <label><input type="checkbox" name="time" value="土日">土日</label>
+          </div>
+          <input type="text" id="f_time_note" placeholder="具体的な希望があれば（例：火・木の15時頃）" style="margin-top:10px" />
+        </div>
+        <div class="fld">
+          <div class="consent">
+            <input type="checkbox" id="f_consent">
+            <label for="f_consent">面談のご連絡のために、入力内容を旬彩坊 経営サポート（運営：スパイシーデバイス）が利用することに同意します。<a href="#notice">個人情報の取扱い</a></label>
+          </div>
+          <div class="err" id="e_consent">同意にチェックをお願いします。</div>
+        </div>
+      </div>
+
+      <!-- ===== BRANCH: REFERRAL ===== -->
+      <div class="branch" id="b_referral">
+        <div class="cond" style="margin-top:0;margin-bottom:18px">
+          <b>紹介特典について</b>
+          <ul>
+            <li>紹介したオーナー・店長さんとの<b>15分面談が完了</b>したら、Amazonギフト1,000円分</li>
+            <li>先着10名／1店舗1名まで／旬彩坊お取引店 限定</li>
+            <li>オーナー本人の自己応募は対象外です</li>
+          </ul>
+        </div>
+        <div class="fld">
+          <label class="q" for="f_ref_name">あなたのお名前（紹介者）<span class="req">必須</span><span class="opt">ギフトのお届け確認用</span></label>
+          <input type="text" id="f_ref_name" autocomplete="name" placeholder="例）佐藤 花子" />
+          <div class="err" id="e_ref_name">お名前をご入力ください。</div>
+        </div>
+        <div class="fld">
+          <label class="q" for="f_ref_contact">ギフト送付用のご連絡先<span class="req">必須</span><span class="opt">メール or LINEなど</span></label>
+          <input type="text" id="f_ref_contact" placeholder="例）mail@example.com ／ LINE ID など" />
+          <div class="err" id="e_ref_contact">ご連絡先をご入力ください。</div>
+        </div>
+        <div class="fld">
+          <label class="q">① オーナー・店長さんへ送る紹介文</label>
+          <div class="hint" style="margin-top:0;margin-bottom:8px">下の文章をコピーして、LINEなどで送ってください。文中のURLからオーナーが直接お申し込みできます。</div>
+          <div class="introbox" id="introText"></div>
+          <div class="sharerow">
+            <button type="button" class="btn btn-ghost" id="copyIntro">📋 紹介文をコピー</button>
+            <button type="button" class="btn btn-line" id="shareOwner">オーナー用URLを共有</button>
+          </div>
+          <div class="hint">※ オーナーの連絡先をこちらに入力する必要はありません。URLを送るだけでOKです。</div>
+        </div>
+      </div>
+
+      <!-- ===== BRANCH: DEMO ===== -->
+      <div class="branch" id="b_demo">
+        <div class="offer" style="margin-top:0">
+          <h3 style="margin-top:0">まずは触ってみてください</h3>
+          <p style="font-size:13.5px;color:var(--muted);text-align:center;margin-bottom:16px">実際のチェックリスト画面をそのままご覧いただけます（サンプル）。</p>
+          <a class="btn btn-blue btn-lg" href="https://spicy-device.com/opening-checklist/" target="_blank" rel="noopener" id="demoLink">デモを見る（別タブで開きます）</a>
+          <div style="text-align:center;margin-top:16px;font-size:13px;color:var(--muted)">見てみて「よさそう」と思ったら…</div>
+          <button type="button" class="btn btn-primary btn-lg" id="demoToApply" style="margin-top:10px">無料モニターに応募する</button>
+        </div>
+      </div>
+
+      <!-- ===== BRANCH: NONE ===== -->
+      <div class="branch" id="b_none">
+        <div class="offer" style="margin-top:0;text-align:center">
+          <h3 style="margin-top:0">ご覧いただきありがとうございます</h3>
+          <p style="font-size:13.5px;color:var(--muted)">また機会がありましたら、いつでもお声がけください。<br>今後の参考に、もしよければ一言いただけると嬉しいです（任意）。</p>
+          <textarea id="f_none_note" placeholder="（任意）気になった点・ご要望など" style="margin-top:14px"></textarea>
+        </div>
+      </div>
+
+      <!-- SUBMIT (owner / demo->apply / none) -->
+      <button type="button" class="btn btn-primary btn-lg" id="submitBtn" style="display:none">この内容で申し込む</button>
+      <div class="err" id="e_submit" style="text-align:center">送信に失敗しました。時間をおいて再度お試しください。</div>
+    </div>
+
+    <!-- THANKS -->
+    <div class="thanks" id="thanks">
+      <div class="tk"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6 9 17l-5-5"/></svg></div>
+      <h3 id="thanksTitle">ありがとうございます！</h3>
+      <p id="thanksMsg">担当（旬彩坊 藤谷）より、2営業日以内にご連絡します。</p>
+    </div>
+  </div>
+</section>
+
+<!-- ===== FAQ / NOTICE ===== -->
+<section>
+  <div class="wrap">
+    <div class="eyebrow reveal">よくあるご質問</div>
+    <h2 class="reveal">気になる点にお答えします。</h2>
+
+    <details class="faq reveal">
+      <summary>本当に無料ですか？あとから請求されませんか？<svg class="chev" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.2"><path d="m6 9 6 6 6-6"/></svg></summary>
+      <div class="fa-body">モニター期間中は無料です。自動で課金されることはありません。続けたい場合だけ、あらためて有料プランをご案内します。</div>
+    </details>
+    <details class="faq reveal">
+      <summary>ITが苦手でも使えますか？<svg class="chev" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.2"><path d="m6 9 6 6 6-6"/></svg></summary>
+      <div class="fa-body">スマホでチェックを付けるだけです。最初のリスト作成と設定は旬彩坊がサポートしますので、専門知識は不要です。</div>
+    </details>
+    <details class="faq reveal">
+      <summary>面談では何を話しますか？<svg class="chev" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.2"><path d="m6 9 6 6 6-6"/></svg></summary>
+      <div class="fa-body">15分ほどで、開店・閉店の作業や困りごとをうかがい、どんなチェックリストが合うかをご相談します。無理な勧誘はしません。</div>
+    </details>
+    <details class="faq reveal">
+      <summary>紹介特典は誰がもらえますか？<svg class="chev" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.2"><path d="m6 9 6 6 6-6"/></svg></summary>
+      <div class="fa-body">現場スタッフの方が、オーナー・店長さんをご紹介し、その面談が完了した場合にAmazonギフト1,000円分をお渡しします（先着10名／1店舗1名／お取引店限定）。オーナーご本人の自己応募は対象外です。</div>
+    </details>
+
+    <div class="notice" id="notice">
+      <b>個人情報の取扱いについて</b><br>
+      いただいた情報は、本モニターのご連絡・運営の目的のみに使用し、旬彩坊 経営サポート（運営：スパイシーデバイス）が管理します。目的外の利用や、第三者への提供は行いません。取得する項目は必要最小限とし、ご希望に応じて削除いたします。<br>
+      <span style="display:block;margin-top:8px">※ 本ページは旬彩坊のお取引店さま向けのご案内です。紹介特典があることは、オーナー・店長さまにも明示しています。</span>
+    </div>
+  </div>
+</section>
+
+<!-- ===== FOOTER ===== -->
+<footer>
+  <div class="wrap">
+    <div class="fbrand">旬彩坊 経営サポート</div>
+    <div>飲食店の「売上・コスト・手間」を整える、経営パートナー。</div>
+    <div style="margin-top:12px"><a href="../">サポートTOPへ戻る ›</a></div>
+    <div class="ops-note">運営：スパイシーデバイス（合同会社 旬彩坊 パートナー）／ © 2026 旬彩坊 経営サポート</div>
+  </div>
+</footer>
+
+<!-- sticky mobile CTA -->
+<div class="mcta" id="mcta">
+  <a class="btn btn-primary" href="#form" data-cta="sticky">30秒で無料モニターに回答</a>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script>
+  /* ====== 設定：GASウェブアプリのURLをここに貼る ====== */
+  var FORM_ENDPOINT = ''; // 例）'https://script.google.com/macros/s/AKfy...../exec'
+  /* ===================================================== */
+
+  // --- URLパラメータ（流入元・店舗コード）---
+  var params = new URLSearchParams(location.search);
+  var SRC   = params.get('source') || params.get('utm_source') || 'direct';
+  var STORE = params.get('store') || params.get('store_code') || '';
+  var STORE_NAME = params.get('store_name') || '';
+
+  // オーナー用共有URL（スタッフ→オーナー）
+  function ownerShareURL(){
+    var u = location.origin + location.pathname + '?source=referral';
+    if(STORE) u += '&store=' + encodeURIComponent(STORE);
+    return u;
+  }
+
+  // 店舗バナー表示
+  (function(){
+    if(STORE || STORE_NAME){
+      var b = document.getElementById('storebar');
+      b.classList.add('show');
+      if(STORE_NAME){ document.getElementById('storebarName').textContent = STORE_NAME; document.getElementById('f_store').value = STORE_NAME; }
+      else if(STORE){ document.getElementById('storebarName').textContent = STORE + ' 番'; }
+    }
+  })();
+
+  // --- 計測 track() ---
+  function track(ev, extra){
+    try{ if(window.goatcounter && window.goatcounter.count){ window.goatcounter.count({path:'monitor/'+ev, event:true}); } }catch(e){}
+    if(FORM_ENDPOINT){
+      var p = Object.assign({type:'event', event:ev, source:SRC, store:STORE, ts:new Date().toISOString()}, extra||{});
+      try{ navigator.sendBeacon(FORM_ENDPOINT, new Blob([JSON.stringify(p)], {type:'text/plain;charset=UTF-8'})); }catch(e){}
+    }
+  }
+
+  // フォーム開始（最初の操作で1回だけ）
+  var started = false;
+  function markStart(){ if(!started){ started = true; track('form_start', {role: getRole()}); } }
+  document.getElementById('formcard').addEventListener('input', markStart, {once:false});
+  document.getElementById('formcard').addEventListener('change', markStart, {once:false});
+
+  // ラジオ/チェックの見た目
+  function syncRow(container){
+    container.querySelectorAll('.opt-row').forEach(function(r){
+      var i = r.querySelector('input'); r.classList.toggle('checked', i.checked);
+    });
+  }
+  function syncChips(container){
+    container.querySelectorAll('label').forEach(function(l){
+      var i = l.querySelector('input'); l.classList.toggle('checked', i.checked);
+    });
+  }
+  ['q_role','q_status'].forEach(function(id){
+    var c = document.getElementById(id);
+    c.addEventListener('change', function(){ syncRow(c); });
+  });
+  ['q_prefer','q_time'].forEach(function(id){
+    var c = document.getElementById(id);
+    c.addEventListener('change', function(){ syncChips(c); });
+  });
+
+  function getRole(){ var r = document.querySelector('input[name=role]:checked'); return r? r.value : ''; }
+  function getStatus(){ var r = document.querySelector('input[name=status]:checked'); return r? r.value : ''; }
+
+  // --- 分岐 ---
+  var branches = {owner:'b_owner', referral:'b_referral', demo:'b_demo', none:'b_none'};
+  function showBranch(){
+    var st = getStatus();
+    Object.keys(branches).forEach(function(k){ document.getElementById(branches[k]).classList.toggle('show', k===st); });
+    // 送信ボタンの出し分け（referral/demo は専用UI、submitは owner / none / demo応募後）
+    var submit = document.getElementById('submitBtn');
+    if(st==='owner'){ submit.style.display='block'; submit.textContent='この内容で面談を申し込む'; }
+    else if(st==='none'){ submit.style.display='block'; submit.textContent='送信する'; }
+    else { submit.style.display='none'; }
+    if(st==='referral'){ buildIntro(); }
+    document.getElementById('e_submit').classList.remove('show');
+  }
+  document.getElementById('q_status').addEventListener('change', showBranch);
+
+  // --- 紹介文の生成 ---
+  function buildIntro(){
+    var url = ownerShareURL();
+    var txt =
+'【旬彩坊さんからのご案内です】\n' +
+'いつも旬彩坊でお世話になっています。\n\n' +
+'旬彩坊が「店舗業務の見える化モニター（3店舗限定・無料）」を始めたそうです。\n' +
+'開店・閉店のチェックリストを、日本語・英語・中国語で作ってくれるとのこと。\n' +
+'オーナー・店長さん向けに15分の無料説明をしてもらえるそうなので、よければ下のURLからご確認ください。\n\n' +
+'▼ 詳細・お申し込み\n' + url + '\n\n' +
+'（この紹介には、旬彩坊からのささやかな謝礼があります）';
+    document.getElementById('introText').textContent = txt;
+    return txt;
+  }
+
+  // コピー
+  document.getElementById('copyIntro').addEventListener('click', function(){
+    var txt = document.getElementById('introText').textContent;
+    copyText(txt, 'introbox');
+    track('copy_intro', {role:getRole()});
+    toast('紹介文をコピーしました');
+  });
+  // オーナーURL共有
+  document.getElementById('shareOwner').addEventListener('click', function(){
+    var url = ownerShareURL();
+    track('share_owner_url', {role:getRole()});
+    if(navigator.share){
+      navigator.share({title:'店舗業務の見える化モニター', text:'旬彩坊のお取引店向け 無料モニターのご案内です。', url:url}).catch(function(){});
+    } else {
+      copyText(url, 'url');
+      toast('オーナー用URLをコピーしました');
+    }
+  });
+
+  function copyText(txt, kind){
+    if(navigator.clipboard && navigator.clipboard.writeText){
+      navigator.clipboard.writeText(txt).catch(function(){ legacyCopy(txt); });
+    } else { legacyCopy(txt); }
+  }
+  function legacyCopy(txt){
+    var ta=document.createElement('textarea'); ta.value=txt; ta.style.position='fixed'; ta.style.opacity='0';
+    document.body.appendChild(ta); ta.select();
+    try{ document.execCommand('copy'); }catch(e){}
+    document.body.removeChild(ta);
+  }
+
+  // トースト
+  var toastEl = document.getElementById('toast'), toastT;
+  function toast(msg){
+    toastEl.textContent = msg; toastEl.classList.add('show');
+    clearTimeout(toastT); toastT = setTimeout(function(){ toastEl.classList.remove('show'); }, 2200);
+  }
+
+  // デモ → 応募（ownerブランチに切替）
+  document.getElementById('demoLink').addEventListener('click', function(){ track('demo_view', {role:getRole()}); });
+  document.getElementById('demoToApply').addEventListener('click', function(){
+    var r = document.querySelector('input[name=status][value=owner]'); r.checked = true;
+    syncRow(document.getElementById('q_status')); showBranch();
+    document.getElementById('b_owner').scrollIntoView({behavior:'smooth', block:'center'});
+  });
+
+  // --- バリデーション & 送信 ---
+  function showErr(id, on){ document.getElementById(id).classList.toggle('show', on); }
+  function val(id){ return (document.getElementById(id).value||'').trim(); }
+
+  document.getElementById('submitBtn').addEventListener('click', function(){
+    var st = getStatus(); var ok = true;
+    // 共通
+    if(!val('f_store')){ showErr('e_store', true); ok=false; } else showErr('e_store', false);
+    if(!getRole()){ showErr('e_role', true); ok=false; } else showErr('e_role', false);
+    if(!st){ showErr('e_status', true); ok=false; } else showErr('e_status', false);
+
+    if(st==='owner'){
+      if(!val('f_name')){ showErr('e_name', true); ok=false; } else showErr('e_name', false);
+      if(!val('f_tel') && !val('f_email')){ showErr('e_contact', true); ok=false; } else showErr('e_contact', false);
+      if(!document.getElementById('f_consent').checked){ showErr('e_consent', true); ok=false; } else showErr('e_consent', false);
+    }
+    if(!ok){
+      var firstErr = document.querySelector('.err.show');
+      if(firstErr) firstErr.scrollIntoView({behavior:'smooth', block:'center'});
+      return;
+    }
+    submitForm(st);
+  });
+
+  function collect(st){
+    var times = Array.prototype.map.call(document.querySelectorAll('input[name=time]:checked'), function(i){return i.value;});
+    var prefer = document.querySelector('input[name=prefer]:checked');
+    var data = {
+      type:'submission',
+      source:SRC, store:STORE, store_name_param:STORE_NAME,
+      ts:new Date().toISOString(),
+      status:st, role:getRole(), store_name:val('f_store'),
+    };
+    if(st==='owner'){
+      data.name = val('f_name');
+      data.tel = val('f_tel');
+      data.email = val('f_email');
+      data.prefer = prefer ? prefer.value : '';
+      data.time = times.join(' / ');
+      data.time_note = val('f_time_note');
+      data.consent = document.getElementById('f_consent').checked ? 'yes' : 'no';
+    } else if(st==='none'){
+      data.note = val('f_none_note');
+    }
+    return data;
+  }
+
+  function submitForm(st){
+    var btn = document.getElementById('submitBtn');
+    btn.disabled = true; btn.textContent = '送信中…';
+    var data = collect(st);
+
+    var done = function(){
+      track(st==='owner' ? 'meeting_apply' : 'form_submit', {role:getRole()});
+      document.getElementById('formcard').style.display = 'none';
+      var t = document.getElementById('thanks'); t.classList.add('show');
+      if(st==='none'){
+        document.getElementById('thanksTitle').textContent = 'ありがとうございました';
+        document.getElementById('thanksMsg').textContent = 'また機会がありましたら、いつでもお声がけください。';
+      }
+      t.scrollIntoView({behavior:'smooth', block:'center'});
+    };
+
+    if(FORM_ENDPOINT){
+      fetch(FORM_ENDPOINT, {method:'POST', body:JSON.stringify(data)})
+        .then(function(){ done(); })
+        .catch(function(){
+          // 保険：失敗時もメール下書きを開く
+          openMailFallback(data); done();
+        });
+    } else {
+      // エンドポイント未設定：コンソール出力＋メール下書きで保存を担保
+      console.log('[monitor submission]', data);
+      openMailFallback(data);
+      done();
+    }
+  }
+
+  function openMailFallback(data){
+    try{
+      var lines = Object.keys(data).map(function(k){ return k+': '+data[k]; }).join('\n');
+      var subj = '【モニター応募】'+(data.store_name||'')+' / '+(data.role||'');
+      var url = 'mailto:shunsaibou7740@gmail.com?subject='+encodeURIComponent(subj)+'&body='+encodeURIComponent(lines);
+      // 自動で開くと確認画面が乱れるため、未設定時のみ開く
+      if(!FORM_ENDPOINT){ window.location.href = url; }
+    }catch(e){}
+  }
+
+  // reveal
+  (function(){
+    var io = new IntersectionObserver(function(es){ es.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } }); }, {threshold:.12});
+    document.querySelectorAll('.reveal').forEach(function(el){ io.observe(el); });
+    document.querySelectorAll('.list2').forEach(function(g){
+      Array.prototype.forEach.call(g.children, function(c,i){ if(c.classList.contains('reveal')){ c.style.transitionDelay=(i*70)+'ms'; } });
+    });
+  })();
+
+  // CTAクリック計測
+  document.querySelectorAll('[data-cta]').forEach(function(a){
+    a.addEventListener('click', function(){ track('cta_click', {where:a.getAttribute('data-cta')}); });
+  });
+</script>
+</body>
+</html>
