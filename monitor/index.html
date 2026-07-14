@@ -4,8 +4,8 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <meta name="robots" content="noindex" />
-<title>3店舗限定 店舗業務の見える化モニター｜旬彩坊 経営サポート</title>
-<meta name="description" content="旬彩坊お取引店 限定。開店・閉店のチェックリストを日本語・英語・中国語で無料作成。オーナー・店長さんへ15分のご説明から。" />
+<title>3店舗限定 多言語チェックリスト 無料モニター｜旬彩坊 経営サポート</title>
+<meta name="description" content="旬彩坊お取引店 限定。日本語で作った開店・閉店の手順を、英語・中国語でそのまま表示。外国人スタッフにも同じ手順が伝わる多言語チェックリストを無料でお作りします。" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700&family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet" />
@@ -97,6 +97,26 @@
   .mrow .mi svg{width:23px;height:23px;color:var(--green-700)}
   .mrow h3{font-family:var(--head);font-size:15.5px;font-weight:700;margin-bottom:3px}
   .mrow p{font-size:13px;color:var(--muted);line-height:1.7}
+
+  /* hero kicker + inline demo link */
+  .hero-kicker{display:inline-block;font-family:var(--head);font-weight:700;font-size:clamp(13px,3.6vw,15px);color:var(--green-700);background:var(--green-50);border:1px solid var(--green-100);padding:5px 12px;border-radius:8px;margin-bottom:12px}
+  .demo-inline{display:inline-flex;align-items:center;margin-top:14px;font-size:14px;font-weight:700;color:var(--blue-d);border-bottom:1.5px solid transparent;transition:border-color .18s}
+  .demo-inline:hover{border-bottom-color:var(--blue-d)}
+  .demo-lead{color:var(--muted);margin-top:14px;font-size:15px}
+
+  /* multilingual phone mock */
+  .mock3{display:flex;gap:9px;justify-content:center;align-items:stretch;margin-top:26px}
+  .phone{flex:1 1 0;min-width:0;max-width:158px;background:#fff;border:2px solid #26332c;border-radius:16px;padding:8px 7px 11px;box-shadow:var(--sh-h)}
+  .phone .lang{font-family:var(--pop);font-weight:700;font-size:11px;text-align:center;padding:4px 0;border-radius:8px;margin-bottom:8px;color:#fff;letter-spacing:.02em}
+  .phone.ja .lang{background:var(--green-700)} .phone.en .lang{background:var(--green-600)} .phone.zh .lang{background:var(--muted)}
+  .phone .ttl{font-size:10.5px;font-weight:700;color:var(--ink);margin-bottom:8px;line-height:1.3;min-height:26px;padding-bottom:6px;border-bottom:1px solid var(--line)}
+  .phone .ck{display:flex;align-items:flex-start;gap:5px;font-size:9.5px;line-height:1.35;color:var(--ink);margin-bottom:7px}
+  .phone .ck:last-child{margin-bottom:0}
+  .phone .ck .bx{width:13px;height:13px;border-radius:4px;flex:none;display:grid;place-items:center;margin-top:1px}
+  .phone .ck.on .bx{background:var(--green-600)} .phone .ck.on .bx svg{width:8px;height:8px;color:#fff}
+  .phone .ck.off .bx{border:1.5px solid var(--line)}
+  .phone .ck.off{color:var(--muted)}
+  @media(max-width:360px){ .phone{padding:7px 5px 9px} .phone .lang{font-size:10px} .phone .ttl{font-size:9.5px} .phone .ck{font-size:8.7px;gap:4px} }
 
   /* offer box */
   .offer{background:#fff;border:1px solid var(--line);border-radius:var(--r-lg);box-shadow:var(--sh);padding:24px 20px;margin-top:22px;position:relative}
@@ -209,7 +229,7 @@
   <div class="wrap nav">
     <a class="brand" href="#top">
       <svg class="mark" viewBox="0 0 44 44"><rect width="44" height="44" rx="12" fill="#1e8e4e"/><path d="M22 33c-6 0-10-4.5-10-10 0-4.5 2.5-7.5 7-8 4-.5 6-1 8-3.5 1.2 2 2 4.5 2 8 0 7-3.5 13.5-7 13.5Z" fill="#a8e0b6"/><path d="M22 33V16" stroke="#1e8e4e" stroke-width="2" stroke-linecap="round"/></svg>
-      <span><b>店舗業務の見える化モニター</b><small>旬彩坊 経営サポート</small></span>
+      <span><b>多言語チェックリスト</b><small>旬彩坊 経営サポート</small></span>
     </a>
     <a class="back" href="../">サポートTOP ›</a>
   </div>
@@ -220,14 +240,16 @@
 <section class="hero">
   <div class="wrap">
     <div class="htag"><span class="pin"></span>3店舗限定 ／ 旬彩坊お取引店 専用</div>
-    <h1>開店・閉店の「やること」を<br><span class="u">スマホでチェック</span>。<br>専用リストを<span class="u">無料</span>で作ります。</h1>
-    <p class="sub">日本語で作れば、英語・中国語でもそのまま表示。外国人スタッフや新人さんも、初日から迷いません。まずはオーナー・店長さんへ15分のご説明から。</p>
+    <p class="hero-kicker">外国人スタッフにも、同じ手順が伝わる</p>
+    <h1>多言語対応の<br>開店・閉店<span class="u">チェックリスト</span>を、<br><span class="u">無料</span>でお作りします。</h1>
+    <p class="sub">日本語で作れば、英語・中国語でそのまま表示。言葉の違いによる「伝え漏れ」を減らし、開店・閉店・清掃・温度確認など、毎日の業務の品質を揃えます。</p>
 
     <div class="storebar" id="storebar">📍 <span><b id="storebarName">お取引店</b> 様 専用のご案内ページです</span></div>
 
     <div class="hero-cta">
       <a class="btn btn-primary btn-lg" href="#form" data-cta="hero">30秒で回答する（無料）</a>
     </div>
+    <a class="demo-inline" href="https://spicy-device.com/opening-checklist/" target="_blank" rel="noopener" data-cta="hero-demo" id="demoLinkHero">▶ まず、実際の多言語画面（デモ）を見る</a>
     <p class="hero-note">※ しつこい営業はしません。まずは合うかどうかのご相談から。</p>
 
     <div class="hero-chips">
@@ -278,19 +300,58 @@
 <!-- ===== MERITS ===== -->
 <section class="merit">
   <div class="wrap">
-    <div class="eyebrow reveal">導入するとこうなります</div>
-    <h2 class="reveal">作るのは1回。<br>あとはスマホで毎日ラクに。</h2>
+    <div class="eyebrow reveal">多言語チェックリストで変わること</div>
+    <h2 class="reveal">言葉の壁で、<br>手順がバラつかない。</h2>
     <div class="mrow reveal">
       <div class="mi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 8h14M9 5h6M4 12h16M6 16h12M8 20h8"/></svg></div>
-      <div><h3>日本語で作れば、英語・中国語でも表示</h3><p>翻訳の手間なし。外国人スタッフも自分の言語でチェックできます。</p></div>
+      <div><h3>外国人スタッフにも、同じ手順がそのまま伝わる</h3><p>日本語で作れば、英語・中国語で自動表示。翻訳の手間なく、全員が自分の言語で同じ手順を確認できます。</p></div>
     </div>
     <div class="mrow reveal">
       <div class="mi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg></div>
-      <div><h3>誰が、いつ確認したかが残る</h3><p>チェックした人と時刻が記録に。「やった・やってない」で揉めません。</p></div>
+      <div><h3>「伝え漏れ」が減り、お店の業務品質が揃う</h3><p>誰がやっても同じ基準に。人によって作業が抜ける・バラつくことがなくなります。</p></div>
     </div>
     <div class="mrow reveal">
       <div class="mi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2 4 6v6c0 5 3.5 8 8 10 4.5-2 8-5 8-10V6Z"/><path d="m9 12 2 2 4-4"/></svg></div>
-      <div><h3>最初の設定は旬彩坊がサポート</h3><p>お店の作業を聞き取って、チェックリストの形にするところまでお手伝いします。</p></div>
+      <div><h3>作成・設定は旬彩坊がサポート</h3><p>お店の作業を聞き取ってリストの形にするところまでお手伝い。誰がいつ確認したかの記録も残ります。</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== DEMO (multilingual mock) ===== -->
+<section id="demo">
+  <div class="wrap">
+    <div class="eyebrow reveal">実際の画面</div>
+    <h2 class="reveal">同じチェックリストが、<br>そのまま3言語で。</h2>
+    <p class="demo-lead reveal">日本語で1回作れば、英語・中国語は自動で表示。スタッフ全員が、自分の言語で同じ手順を確認できます。</p>
+    <div class="mock3 reveal">
+      <div class="phone ja">
+        <div class="lang">日本語</div>
+        <div class="ttl">開店チェックリスト</div>
+        <div class="ck on"><span class="bx"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6 9 17l-5-5"/></svg></span>レジの準備</div>
+        <div class="ck on"><span class="bx"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6 9 17l-5-5"/></svg></span>清掃の確認</div>
+        <div class="ck on"><span class="bx"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6 9 17l-5-5"/></svg></span>冷蔵庫の温度確認</div>
+        <div class="ck off"><span class="bx"></span>備品の補充</div>
+      </div>
+      <div class="phone en">
+        <div class="lang">English</div>
+        <div class="ttl">Opening Checklist</div>
+        <div class="ck on"><span class="bx"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6 9 17l-5-5"/></svg></span>Prepare the register</div>
+        <div class="ck on"><span class="bx"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6 9 17l-5-5"/></svg></span>Check cleaning</div>
+        <div class="ck on"><span class="bx"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6 9 17l-5-5"/></svg></span>Check fridge temp.</div>
+        <div class="ck off"><span class="bx"></span>Refill supplies</div>
+      </div>
+      <div class="phone zh">
+        <div class="lang">中文</div>
+        <div class="ttl">开店检查清单</div>
+        <div class="ck on"><span class="bx"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6 9 17l-5-5"/></svg></span>准备收银机</div>
+        <div class="ck on"><span class="bx"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6 9 17l-5-5"/></svg></span>确认清扫</div>
+        <div class="ck on"><span class="bx"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6 9 17l-5-5"/></svg></span>确认冰箱温度</div>
+        <div class="ck off"><span class="bx"></span>补充用品</div>
+      </div>
+    </div>
+    <div style="text-align:center;margin-top:26px" class="reveal">
+      <a class="btn btn-blue btn-lg" href="https://spicy-device.com/opening-checklist/" target="_blank" rel="noopener" data-cta="demo" id="demoLinkTop">実際のデモを触ってみる（別タブ）</a>
+      <p class="hero-note" style="margin-top:12px">見て「よさそう」と思ったら、下の30秒フォームからご応募ください。</p>
     </div>
   </div>
 </section>
@@ -304,17 +365,25 @@
       <div class="stamp">初回 無料</div>
       <h3>ご提供する内容</h3>
       <ul class="checklist">
-        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6 9 17l-5-5"/></svg>オーナー・意思決定者への15分ヒアリング</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6 9 17l-5-5"/></svg>オーナー・店長さまへの15分ヒアリング</li>
         <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6 9 17l-5-5"/></svg>店舗専用チェックリストを1〜2本作成</li>
         <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6 9 17l-5-5"/></svg>日本語・英語・中国語で表示</li>
         <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6 9 17l-5-5"/></svg>初期設定のサポート</li>
         <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6 9 17l-5-5"/></svg>30〜60日間のモニター利用</li>
         <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6 9 17l-5-5"/></svg>有料継続は希望店のみ／自動課金なし</li>
       </ul>
+      <div class="cond" style="background:#eef6ff;color:#0b3a66">
+        <b>こんな業務を、多言語で共有できます</b>
+        <ul>
+          <li>開店前の準備 ／ 閉店後の確認</li>
+          <li>清掃手順 ／ 冷蔵庫の温度確認</li>
+          <li>スタッフ間の引き継ぎ</li>
+        </ul>
+      </div>
       <div class="cond">
         <b>ご参加の条件</b>
         <ul>
-          <li>オーナーまたは意思決定者が初回面談に参加</li>
+          <li>オーナー・店長など、お店を決められる方が初回面談に参加</li>
           <li>実際に現場スタッフが利用する</li>
           <li>2週間後と終了時に、かんたんなフィードバック</li>
           <li>※ まったく利用されない場合は、モニターを終了することがあります</li>
@@ -335,15 +404,15 @@
         Amazonギフト 1,000円分
       </div>
       <h3>「うちのオーナーに紹介したよ」でOK</h3>
-      <p>あなたが紹介したオーナー・店長さんとの<b>15分の面談が完了</b>したら、紹介してくれたあなたにAmazonギフト1,000円分をお渡しします。</p>
+      <p>あなたが紹介したオーナー・店長さまとの<b>15分の面談が完了</b>したら、紹介してくれたあなたへAmazonギフト1,000円分。オーナーさまご本人が直接お申し込みされた場合は、ご本人にお渡しします。</p>
       <div class="rules">
         <b>特典の条件</b>
         <ul>
           <li>先着10名／1店舗につき1名まで</li>
           <li>旬彩坊の既存お取引店であること</li>
-          <li>オーナー・経営者・店長など「導入を判断できる方」との面談完了後にお渡し</li>
+          <li>オーナー・店長さまとの15分面談が完了後にお渡し</li>
           <li>連絡先を送っただけ・チラシを渡しただけは対象外</li>
-          <li>オーナーご本人の自己応募は、紹介特典の対象外です</li>
+          <li>オーナーさまご本人の応募もOK（その場合はご本人へ）</li>
         </ul>
       </div>
     </div>
@@ -437,9 +506,9 @@
         <div class="cond" style="margin-top:0;margin-bottom:18px">
           <b>紹介特典について</b>
           <ul>
-            <li>紹介したオーナー・店長さんとの<b>15分面談が完了</b>したら、Amazonギフト1,000円分</li>
+            <li>紹介したオーナー・店長さまとの<b>15分面談が完了</b>したら、Amazonギフト1,000円分</li>
             <li>先着10名／1店舗1名まで／旬彩坊お取引店 限定</li>
-            <li>オーナー本人の自己応募は対象外です</li>
+            <li>オーナーさまご本人の応募もOK（その場合はご本人へお渡し）</li>
           </ul>
         </div>
         <div class="fld">
@@ -518,7 +587,7 @@
     </details>
     <details class="faq reveal">
       <summary>紹介特典は誰がもらえますか？<svg class="chev" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.2"><path d="m6 9 6 6 6-6"/></svg></summary>
-      <div class="fa-body">現場スタッフの方が、オーナー・店長さんをご紹介し、その面談が完了した場合にAmazonギフト1,000円分をお渡しします（先着10名／1店舗1名／お取引店限定）。オーナーご本人の自己応募は対象外です。</div>
+      <div class="fa-body">現場スタッフの方が、オーナー・店長さまをご紹介し、その面談が完了した場合にAmazonギフト1,000円分をお渡しします（先着10名／1店舗1名／お取引店限定）。オーナーさまご本人が直接応募された場合は、ご本人にお渡しします。</div>
     </details>
 
     <div class="notice" id="notice">
@@ -633,8 +702,8 @@
     var txt =
 '【旬彩坊さんからのご案内です】\n' +
 'いつも旬彩坊でお世話になっています。\n\n' +
-'旬彩坊が「店舗業務の見える化モニター（3店舗限定・無料）」を始めたそうです。\n' +
-'開店・閉店のチェックリストを、日本語・英語・中国語で作ってくれるとのこと。\n' +
+'旬彩坊が「多言語チェックリスト 無料モニター（3店舗限定）」を始めたそうです。\n' +
+'開店・閉店などの手順を、日本語で作れば英語・中国語でもそのまま表示。外国人スタッフにも同じ手順が伝わるとのこと。\n' +
 'オーナー・店長さん向けに15分の無料説明をしてもらえるそうなので、よければ下のURLからご確認ください。\n\n' +
 '▼ 詳細・お申し込み\n' + url + '\n\n' +
 '（この紹介には、旬彩坊からのささやかな謝礼があります）';
@@ -654,7 +723,7 @@
     var url = ownerShareURL();
     track('share_owner_url', {role:getRole()});
     if(navigator.share){
-      navigator.share({title:'店舗業務の見える化モニター', text:'旬彩坊のお取引店向け 無料モニターのご案内です。', url:url}).catch(function(){});
+      navigator.share({title:'多言語チェックリスト 無料モニター', text:'旬彩坊のお取引店向け 無料モニターのご案内です。', url:url}).catch(function(){});
     } else {
       copyText(url, 'url');
       toast('オーナー用URLをコピーしました');
@@ -682,6 +751,7 @@
 
   // デモ → 応募（ownerブランチに切替）
   document.getElementById('demoLink').addEventListener('click', function(){ track('demo_view', {role:getRole()}); });
+  ['demoLinkHero','demoLinkTop'].forEach(function(id){ var el=document.getElementById(id); if(el){ el.addEventListener('click', function(){ track('demo_view', {where:id}); }); } });
   document.getElementById('demoToApply').addEventListener('click', function(){
     var r = document.querySelector('input[name=status][value=owner]'); r.checked = true;
     syncRow(document.getElementById('q_status')); showBranch();
