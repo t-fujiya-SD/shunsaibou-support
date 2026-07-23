@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="robots" content="noindex,nofollow" />
+<title>【社内用】訪問→面談トーク台本｜旬彩坊 店舗支援</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet" />
+<style>
+  :root{
+    --green-900:#0f5c34; --green-800:#13713f; --green-700:#1e8e4e; --green-600:#34a853;
+    --green-100:#e6f4ea; --green-50:#f3faf5;
+    --blue:#4285f4; --blue-d:#1a73e8; --red:#ea4335; --red-d:#c5221f; --yellow-d:#f9ab00;
+    --ink:#202124; --muted:#5f6368; --line:#e4e9e4; --bg:#fff; --soft:#f5f8f5;
+    --head:"Noto Sans JP",system-ui,sans-serif; --sans:"Noto Sans JP",system-ui,sans-serif; --pop:"Poppins","Noto Sans JP",sans-serif;
+    --sh:0 1px 2px rgba(60,64,67,.1),0 1px 3px rgba(60,64,67,.06);
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:var(--sans);color:var(--ink);background:var(--soft);line-height:1.8;font-size:16px;-webkit-font-smoothing:antialiased;padding-bottom:70px}
+  .wrap{max-width:680px;margin:0 auto;padding:0 16px}
+  a{color:var(--blue-d)}
+
+  .banner{background:#3a2b00;color:#ffd873;text-align:center;font-size:12px;font-weight:700;padding:7px 12px;letter-spacing:.02em}
+  header{background:var(--green-700);color:#fff;padding:22px 0 20px}
+  header h1{font-family:var(--head);font-size:clamp(19px,5vw,24px);font-weight:900;line-height:1.4}
+  header p{font-size:13px;color:#dff1e4;margin-top:6px}
+
+  /* 使い方カード */
+  .intro{background:#fff;border-radius:14px;box-shadow:var(--sh);padding:18px 16px;margin-top:18px;border:1px solid var(--line)}
+  .intro h2{font-family:var(--head);font-size:16px;font-weight:900;margin-bottom:10px;display:flex;align-items:center;gap:8px}
+  .intro h2::before{content:"🎯"}
+  .flow{display:flex;flex-wrap:wrap;gap:6px;align-items:center;margin:10px 0 4px;font-size:12.5px;font-weight:700}
+  .flow span{background:var(--green-50);border:1px solid var(--green-100);color:var(--green-800);border-radius:999px;padding:5px 11px}
+  .flow b{color:var(--muted);font-weight:700}
+  .note{font-size:12.5px;color:var(--muted);margin-top:8px;line-height:1.7}
+  .note b{color:var(--red-d)}
+
+  /* phase */
+  .phase{background:#fff;border-radius:14px;box-shadow:var(--sh);border:1px solid var(--line);margin-top:16px;overflow:hidden}
+  .phase > summary{list-style:none;cursor:pointer;padding:16px;display:flex;align-items:center;gap:12px}
+  .phase > summary::-webkit-details-marker{display:none}
+  .phase .num{width:34px;height:34px;flex:none;border-radius:10px;background:var(--green-700);color:#fff;font-family:var(--pop);font-weight:700;display:grid;place-items:center;font-size:16px}
+  .phase .ttl{flex:1}
+  .phase .ttl b{display:block;font-family:var(--head);font-weight:900;font-size:15.5px;line-height:1.4}
+  .phase .ttl small{color:var(--muted);font-size:12px}
+  .phase .chev{color:var(--green-700);transition:transform .22s;flex:none}
+  .phase[open] .chev{transform:rotate(180deg)}
+  .phase .body{padding:0 16px 18px}
+  .goal{font-size:12.5px;color:var(--green-900);background:var(--green-50);border-radius:8px;padding:8px 11px;margin-bottom:12px}
+  .goal b{font-weight:700}
+
+  /* トーク例 */
+  .say{background:#eef6ff;border-left:4px solid var(--blue);border-radius:0 10px 10px 0;padding:12px 14px;margin:10px 0;font-size:14px;line-height:1.85}
+  .say .lbl{display:block;font-size:11px;font-weight:700;color:var(--blue-d);margin-bottom:4px;letter-spacing:.04em}
+  .say .lbl::before{content:"💬 "}
+  .tip{font-size:12.5px;color:var(--muted);margin:8px 0;padding-left:20px;position:relative;line-height:1.7}
+  .tip::before{content:"✔";position:absolute;left:0;color:var(--green-600);font-weight:900}
+
+  h3.sub{font-family:var(--head);font-size:14px;font-weight:900;margin:16px 0 6px;color:var(--green-800)}
+  ul.q{list-style:none;display:grid;gap:7px;margin-top:6px}
+  ul.q li{font-size:13.5px;padding-left:20px;position:relative;line-height:1.6}
+  ul.q li::before{content:"—";position:absolute;left:0;color:var(--green-600);font-weight:700}
+
+  /* 3提案 */
+  .prop{border:1px solid var(--line);border-radius:12px;padding:13px 14px;margin-top:10px}
+  .prop .h{display:flex;align-items:center;gap:9px;font-family:var(--head);font-weight:900;font-size:14.5px;margin-bottom:5px}
+  .prop .h .b{width:24px;height:24px;flex:none;border-radius:50%;color:#fff;display:grid;place-items:center;font-family:var(--pop);font-size:13px;font-weight:700}
+  .prop.p1 .b{background:var(--green-600)} .prop.p2 .b{background:var(--blue)} .prop.p3 .b{background:var(--yellow-d)}
+  .prop p{font-size:12.5px;color:var(--muted);line-height:1.7}
+
+  /* 切り返し */
+  .rebut{background:#fff;border-radius:14px;box-shadow:var(--sh);border:1px solid var(--line);margin-top:16px;padding:16px}
+  .rebut h2,.ng h2{font-family:var(--head);font-size:16px;font-weight:900;margin-bottom:10px;display:flex;align-items:center;gap:8px}
+  .rebut h2::before{content:"🛡️"}
+  .rb{border-bottom:1px dashed var(--line);padding:9px 0}
+  .rb:last-child{border-bottom:none}
+  .rb .o{font-size:13px;font-weight:700}
+  .rb .a{font-size:13px;color:var(--muted);margin-top:3px}
+  .rb .a::before{content:"→ ";color:var(--green-600);font-weight:700}
+
+  /* NG */
+  .ng{background:#fff5f4;border:1px solid #f6c9c4;border-radius:14px;margin-top:16px;padding:16px}
+  .ng h2::before{content:"🚫"}
+  .ng ul{list-style:none;display:grid;gap:8px}
+  .ng li{font-size:13px;padding-left:22px;position:relative;line-height:1.65;color:#7a2018}
+  .ng li::before{content:"×";position:absolute;left:0;color:var(--red-d);font-weight:900;font-size:15px}
+
+  /* checklist 持ち物 */
+  .kit{background:#fff;border-radius:14px;box-shadow:var(--sh);border:1px solid var(--line);margin-top:16px;padding:16px}
+  .kit h2{font-family:var(--head);font-size:16px;font-weight:900;margin-bottom:10px;display:flex;align-items:center;gap:8px}
+  .kit h2::before{content:"🎒"}
+  .kit label{display:flex;align-items:flex-start;gap:9px;font-size:13.5px;padding:6px 0;cursor:pointer}
+  .kit input{width:18px;height:18px;margin-top:2px;accent-color:var(--green-700);flex:none}
+
+  footer{text-align:center;color:var(--muted);font-size:11px;padding:26px 16px 10px}
+  .demo-open{position:fixed;left:0;right:0;bottom:0;background:rgba(255,255,255,.96);backdrop-filter:blur(8px);border-top:1px solid var(--line);padding:10px 16px calc(10px + env(safe-area-inset-bottom))}
+  .demo-open a{display:block;text-align:center;background:var(--blue);color:#fff;font-family:var(--head);font-weight:700;border-radius:999px;padding:13px;text-decoration:none;font-size:15px}
+</style>
+</head>
+<body>
+<div class="banner">■ 社内用（藤谷さん用）／ このURLは店舗・外部に共有しない ■</div>
+<header>
+  <div class="wrap">
+    <h1>訪問 → 面談 トーク台本</h1>
+    <p>旬彩坊 店舗支援部　店舗訪問・面談の進行用</p>
+  </div>
+</header>
+
+<div class="wrap">
+
+  <div class="intro">
+    <h2>この台本の考え方</h2>
+    <div class="flow">
+      <span>訪問・挨拶</span><b>›</b><span>チラシ手渡し</span><b>›</b><span>デモ</span><b>›</b><span>面談</span><b>›</b><span>3つの提案</span>
+    </div>
+    <div class="note">
+      入口＝<b style="color:var(--green-800)">無料の多言語チェックリスト（手土産）</b>。売り込みではなく“きっかけ”。<br>
+      本命＝面談で旬彩坊との取引を深める（①野菜・生鮮 ②他商品 ③アプリ）。<br>
+      <b>順番厳守：まず信頼づくり → それから提案。いきなり売り込まない。</b>
+    </div>
+  </div>
+
+  <div class="kit">
+    <h2>持ち物チェック</h2>
+    <label><input type="checkbox">チラシ（多めに）</label>
+    <label><input type="checkbox">スマホ／タブレット（デモをその場で見せる）</label>
+    <label><input type="checkbox">名刺</label>
+    <label><input type="checkbox">鮮魚・他商品のサンプル価格表（面談用）</label>
+  </div>
+
+  <!-- STEP 1 -->
+  <details class="phase" open>
+    <summary>
+      <span class="num">1</span>
+      <span class="ttl"><b>訪問・スタッフへ挨拶</b><small>警戒させず、まず受け取ってもらう</small></span>
+      <svg class="chev" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="m6 9 6 6 6-6"/></svg>
+    </summary>
+    <div class="body">
+      <div class="goal"><b>ゴール：</b>名乗って安心してもらい、チラシを受け取ってもらう。</div>
+      <div class="say"><span class="lbl">トーク例</span>「こんにちは、旬彩坊の藤谷です。いつも仕入れでお世話になっております。今日は<b>お取引店さま限定の、無料のお役立ちツール</b>のご案内で伺いました。1分だけよろしいですか？」</div>
+      <div class="tip">忙しい時間帯（開店直前・ピーク）は外す。</div>
+      <div class="tip">「旬彩坊の」＋「いつもお世話になっている」で、既存取引の安心感を最初に出す。</div>
+      <div class="tip">まずスタッフでOK。オーナー不在が普通、と割り切る。</div>
+    </div>
+  </details>
+
+  <!-- STEP 2 -->
+  <details class="phase">
+    <summary>
+      <span class="num">2</span>
+      <span class="ttl"><b>チラシ手渡し</b><small>オーナー・店長へ橋渡ししてもらう</small></span>
+      <svg class="chev" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="m6 9 6 6 6-6"/></svg>
+    </summary>
+    <div class="body">
+      <div class="goal"><b>ゴール：</b>チラシをオーナー/店長へ渡してもらう約束を取る。</div>
+      <div class="say"><span class="lbl">トーク例</span>「開店・閉店のチェックリストを、<b>日本語・英語・中国語で無料</b>でお作りしています。外国人スタッフさんがいるお店に好評で。よければ<b>店長さんかオーナーさんにこちらをお渡し</b>いただけますか？」</div>
+      <div class="say"><span class="lbl">紹介特典を添える</span>「もしオーナーさんにおつなぎいただいて<b>15分お話できたら、ささやかですがAmazonギフト1,000円分</b>をお渡ししています。先着なので、よければぜひ。」</div>
+      <div class="tip">スタッフ自身が“得する”ので、橋渡しの動機になる。</div>
+      <div class="tip">チラシ裏のQRから、オーナーが直接申し込める旨も一言。</div>
+    </div>
+  </details>
+
+  <!-- STEP 3 -->
+  <details class="phase">
+    <summary>
+      <span class="num">3</span>
+      <span class="ttl"><b>デモを見せる（できれば）</b><small>「見たら聞きたくなる」を対面で起こす</small></span>
+      <svg class="chev" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="m6 9 6 6 6-6"/></svg>
+    </summary>
+    <div class="body">
+      <div class="goal"><b>ゴール：</b>実物を30秒見せて、興味を面談につなげる。</div>
+      <div class="say"><span class="lbl">トーク例</span>「実際の画面、30秒で見られます。ほら、<b>日本語で作ると、英語・中国語もこの通り</b>そのまま。チェックした人と時間も残るんです。」</div>
+      <div class="tip">その場でスマホ／タブレットのデモを開く。触ってもらう。</div>
+      <div class="tip">下の「デモを開く」ボタンからワンタップで表示できる。</div>
+    </div>
+  </details>
+
+  <!-- STEP 4 -->
+  <details class="phase">
+    <summary>
+      <span class="num">4</span>
+      <span class="ttl"><b>面談アポを取る</b><small>意思決定者との15分を確定</small></span>
+      <svg class="chev" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="m6 9 6 6 6-6"/></svg>
+    </summary>
+    <div class="body">
+      <div class="goal"><b>ゴール：</b>「いつ・誰と」を具体化する。曖昧に終わらせない。</div>
+      <div class="say"><span class="lbl">その場にオーナーがいる</span>「オーナーさん、いま<b>15分だけ</b>お時間いただけますか？お店に合う形をその場で一緒に考えます。」</div>
+      <div class="say"><span class="lbl">不在のとき</span>「オーナーさん、いつ頃お店にいらっしゃいますか？改めて伺います。<b>このQRから希望の曜日・時間を選ぶ</b>だけでも、こちらからご連絡します。」</div>
+      <div class="tip">必ず「次の来店日」か「QR回答」のどちらかを置いて帰る。</div>
+    </div>
+  </details>
+
+  <!-- STEP 5 -->
+  <details class="phase">
+    <summary>
+      <span class="num">5</span>
+      <span class="ttl"><b>面談本番</b><small>ヒアリング → 3つの提案 → 次の一歩</small></span>
+      <svg class="chev" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="m6 9 6 6 6-6"/></svg>
+    </summary>
+    <div class="body">
+
+      <h3 class="sub">① まず聞く（話す3割・聞く7割）</h3>
+      <div class="goal"><b>狙い：</b>今の取引範囲・不満・広げられる余地を掴む。</div>
+      <ul class="q">
+        <li>今、仕入れで困っていることはありますか？</li>
+        <li>スタッフさんは何名くらい？外国人の方は？</li>
+        <li>開店・閉店の引き継ぎで、抜け漏れって起きます？</li>
+        <li>野菜以外（魚・肉・調味料・消耗品）はどちらから仕入れてます？</li>
+      </ul>
+
+      <h3 class="sub">② 手土産を渡す（信頼づくり）</h3>
+      <div class="say"><span class="lbl">トーク例</span>「まずはこの<b>チェックリスト、無料でお作りします</b>。使ってみて合わなければやめてOK、自動課金もありません。」</div>
+
+      <h3 class="sub">③ 3つの提案（この順番が自然）</h3>
+      <div class="prop p1">
+        <div class="h"><span class="b">1</span>野菜・生鮮の追加</div>
+        <p>いちばん自然。今の取引の延長。</p>
+        <div class="say" style="margin:8px 0 0"><span class="lbl">トーク例</span>「お魚は別のところ…なら、<b>鮮魚もうちでまとめられます</b>よ。1回の納品にまとまると、受け取りもラクです。サンプル価格お持ちしました。」</div>
+      </div>
+      <div class="prop p2">
+        <div class="h"><span class="b">2</span>その他商品の追加</div>
+        <p>調味料・冷凍・消耗品など。</p>
+        <div class="say" style="margin:8px 0 0"><span class="lbl">トーク例</span>「実は〇〇や△△も扱っています。<b>まとめると発注の手間も送料も減らせます</b>。」</div>
+      </div>
+      <div class="prop p3">
+        <div class="h"><span class="b">3</span>アプリ・支援サービス</div>
+        <p>チェックリスト有料化・他ツール（lock-in）。</p>
+        <div class="say" style="margin:8px 0 0"><span class="lbl">トーク例</span>「チェックリストは、続けたい場合だけ月◯◯円。ほかにも、原価やメニュー収益を見える化するツールもあります。」</div>
+      </div>
+
+      <h3 class="sub">④ クロージング（次の一歩を必ず置く）</h3>
+      <div class="say"><span class="lbl">トーク例</span>「じゃあ、まず<b>チェックリストを1本お作りします</b>ね。あと<b>鮮魚のサンプル価格</b>だけお持ちします。次は◯日でどうですか？」</div>
+      <div class="tip">「次の具体アクション＋日付」でクロージング。宿題を残す。</div>
+    </div>
+  </details>
+
+  <!-- 切り返し -->
+  <div class="rebut">
+    <h2>切り返し集</h2>
+    <div class="rb"><div class="o">「今は間に合ってる」</div><div class="a">今すぐでなくて大丈夫です。無料のチェックリストだけでも。合いそうなら次で。</div></div>
+    <div class="rb"><div class="o">「高いんじゃない？」</div><div class="a">チェックリストは無料です。商品はむしろまとめて送料が減ります。</div></div>
+    <div class="rb"><div class="o">「忙しい」</div><div class="a">1分だけ画面お見せします／QRだけ置いていきますね。</div></div>
+    <div class="rb"><div class="o">「他の業者ともう決めてる」</div><div class="a">全部替える必要はないです。足りない品だけ、うちで補う形でも。</div></div>
+  </div>
+
+  <!-- NG -->
+  <div class="ng">
+    <h2>やってはいけない</h2>
+    <ul>
+      <li>いきなり商品を売り込む（手土産→信頼が先）</li>
+      <li>「無料」と言いながら強く有料を迫る（“釣り”に見えて信頼を失う）</li>
+      <li>意思決定者不在で無理に話を進める（スタッフに橋渡しを頼む）</li>
+      <li>忙しい時間に長居する</li>
+    </ul>
+  </div>
+
+  <footer>旬彩坊 店舗支援部（担当：藤谷）／ 社内用・非公開</footer>
+</div>
+
+<div class="demo-open">
+  <a href="https://spicy-device.com/opening-checklist/" target="_blank" rel="noopener">▶ デモを開く（その場で見せる）</a>
+</div>
+</body>
+</html>
