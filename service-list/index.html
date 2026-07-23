@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="robots" content="noindex,nofollow" />
+<title>旬彩坊 店舗支援部 サービス一覧（A4表裏）</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700;800&family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet" />
+<style>
+  :root{
+    --green-900:#0f5c34; --green-800:#13713f; --green-700:#1e8e4e; --green-600:#34a853;
+    --green-100:#e6f4ea; --green-50:#f3faf5;
+    --blue:#4285f4; --blue-d:#1a73e8; --red:#ea4335; --amber:#f9ab00; --amber-bg:#fff6e0;
+    --ink:#1f2620; --muted:#5f6368; --line:#e4e9e4; --soft:#eef1ee;
+    --head:"Noto Sans JP",system-ui,sans-serif; --pop:"Poppins","Noto Sans JP",sans-serif;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:var(--head);color:var(--ink);background:var(--soft);line-height:1.6;-webkit-font-smoothing:antialiased}
+
+  /* ==== toolbar (screen only) ==== */
+  .bar{position:sticky;top:0;z-index:20;background:#12331f;color:#fff;display:flex;align-items:center;justify-content:space-between;gap:12px;padding:10px 16px;font-size:13px}
+  .bar b{font-weight:700}
+  .bar button{background:#fff;color:#12331f;border:none;border-radius:999px;font-weight:700;font-size:13px;padding:9px 18px;cursor:pointer;font-family:var(--head)}
+  .bar small{color:#bfe0c9;font-size:11.5px}
+
+  /* ==== A4 page ==== */
+  .page{width:210mm;min-height:297mm;background:#fff;margin:18px auto;box-shadow:0 6px 26px rgba(0,0,0,.18);padding:11mm 12mm 9mm;position:relative;overflow:hidden}
+
+  .brandbar{display:flex;align-items:center;gap:10px;border-bottom:2px solid var(--green-700);padding-bottom:8px;margin-bottom:9px}
+  .brandbar .logo{width:34px;height:34px}
+  .brandbar .bt b{display:block;font-size:16pt;font-weight:900;line-height:1.1}
+  .brandbar .bt small{font-size:9pt;color:var(--muted)}
+  .brandbar .side{margin-left:auto;text-align:right;font-size:8.5pt;color:var(--muted);line-height:1.5}
+  .brandbar .side b{color:var(--green-800);font-size:9.5pt}
+
+  h1.catch{font-size:21pt;font-weight:900;line-height:1.34;letter-spacing:.01em;margin-top:4px}
+  h1.catch .u{background:linear-gradient(transparent 60%,#cdeccf 60%)}
+  h1.catch .mb{color:var(--blue)} h1.catch .mg{color:var(--green-600)} h1.catch .mr{color:var(--red)}
+  .sub{font-size:10pt;color:var(--muted);margin-top:7px;line-height:1.7}
+
+  .sec-h{display:flex;align-items:center;gap:8px;margin:15px 0 9px}
+  .sec-h .tag{font-family:var(--pop);font-weight:700;font-size:8.5pt;letter-spacing:.08em;color:#fff;background:var(--green-700);padding:3px 11px;border-radius:999px}
+  .sec-h b{font-size:12.5pt;font-weight:900}
+
+  /* free tiles */
+  .free4{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+  .ftile{border:1.5px solid var(--green-600);background:var(--green-50);border-radius:11px;padding:10px 11px;position:relative}
+  .ftile .bdg{position:absolute;top:-9px;left:11px;background:var(--green-700);color:#fff;font-size:7.5pt;font-weight:700;padding:2px 9px;border-radius:999px}
+  .ftile .ic{width:26px;height:26px;color:var(--green-700);margin-bottom:3px}
+  .ftile h3{font-size:10.5pt;font-weight:900;line-height:1.35}
+  .ftile p{font-size:8.3pt;color:var(--muted);line-height:1.55;margin-top:2px}
+
+  /* pillars */
+  .pil3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:9px}
+  .pil{border:1px solid var(--line);border-radius:11px;padding:11px 11px 12px;box-shadow:0 1px 2px rgba(0,0,0,.05)}
+  .pil .bd{width:34px;height:34px;border-radius:9px;display:grid;place-items:center;margin-bottom:8px}
+  .pil .bd svg{width:19px;height:19px;color:#fff}
+  .pil.b .bd{background:var(--blue)} .pil.g .bd{background:var(--green-600)} .pil.r .bd{background:var(--red)}
+  .pil h3{font-size:11.5pt;font-weight:900;margin-bottom:3px}
+  .pil p{font-size:8.4pt;color:var(--muted);line-height:1.55}
+  .pil .ex{margin-top:7px;font-size:8pt;color:var(--ink);border-top:1px dashed var(--line);padding-top:6px;line-height:1.6}
+  .pil.b .ex b{color:var(--blue-d)} .pil.g .ex b{color:var(--green-800)} .pil.r .ex b{color:var(--red-d,#c5221f)}
+
+  .cond{margin-top:13px;background:var(--green-50);border:1px solid var(--green-100);border-radius:11px;padding:11px 13px;font-size:8.6pt;color:var(--green-900);line-height:1.7}
+  .cond b{font-weight:700}
+  .flip{margin-top:11px;text-align:center;font-size:11pt;font-weight:900;color:var(--green-800)}
+
+  /* ==== back: menu list ==== */
+  .catblock{margin-bottom:6px}
+  .cathead{display:flex;align-items:center;gap:9px;border-bottom:1.5px solid var(--line);padding-bottom:5px;margin-bottom:6px}
+  .cathead .chip{font-weight:700;color:#fff;font-size:9.5pt;padding:4px 13px;border-radius:999px}
+  .cathead.c1 .chip{background:var(--blue)} .cathead.c2 .chip{background:var(--green-600)} .cathead.c3 .chip{background:var(--red)}
+  .cathead .cd{font-size:8.6pt;color:var(--muted)}
+  .row{display:flex;align-items:flex-start;gap:9px;padding:3px 0;border-bottom:1px dotted #ece;border-color:#eef0ec}
+  .row:last-child{border-bottom:none}
+  .row .nm{flex:1;min-width:0}
+  .row .nm b{font-size:9.4pt;font-weight:700;display:block;line-height:1.3}
+  .row .nm span{font-size:7.6pt;color:var(--muted);line-height:1.4;display:block}
+  .badge{flex:none;font-size:7.6pt;font-weight:700;padding:3px 9px;border-radius:999px;white-space:nowrap;align-self:center}
+  .b-free{background:var(--green-700);color:#fff}
+  .b-first{background:#fff;color:var(--green-800);border:1.3px solid var(--green-600)}
+  .b-consult{background:var(--green-50);color:var(--green-800)}
+  .b-quote{background:var(--amber-bg);color:#8a5a00;border:1.3px solid #f0c866}
+
+  .steps{display:grid;grid-template-columns:repeat(4,1fr);gap:7px;margin:4px 0 7px}
+  .stp{background:#f7faf7;border:1px solid var(--line);border-radius:9px;padding:6px 8px}
+  .stp .n{font-family:var(--pop);font-weight:700;font-size:8pt;color:var(--green-700)}
+  .stp h4{font-size:8.8pt;font-weight:700;margin:1px 0 2px}
+  .stp p{font-size:7.6pt;color:var(--muted);line-height:1.5}
+
+  .contact{background:var(--green-700);color:#fff;border-radius:12px;padding:10px 14px;display:flex;align-items:center;gap:14px;margin-top:5px}
+  .contact .ct{flex:1}
+  .contact .ct b{font-size:11.5pt;font-weight:900;display:block}
+  .contact .ct small{font-size:8.4pt;color:#dff1e4;display:block;margin-top:2px}
+  .contact .lines{text-align:right;font-size:9.5pt;font-weight:700;line-height:1.6}
+  .contact .lines .tel{font-family:var(--pop);font-size:12pt}
+  .legend{display:flex;flex-wrap:wrap;gap:6px;margin:2px 0 6px;font-size:7.6pt;color:var(--muted)}
+  .legend span{display:inline-flex;align-items:center;gap:4px}
+  .legend i{width:9px;height:9px;border-radius:3px;display:inline-block}
+
+  @media print{
+    body{background:#fff}
+    .bar{display:none}
+    .page{width:210mm;min-height:auto;height:297mm;margin:0;box-shadow:none;page-break-after:always}
+    .page:last-child{page-break-after:auto}
+  }
+  @media(max-width:820px){
+    .page{width:100%;min-height:auto;padding:20px 16px;margin:10px 0}
+    h1.catch{font-size:22px} .free4{grid-template-columns:1fr} .pil3{grid-template-columns:1fr} .steps{grid-template-columns:1fr 1fr}
+    .brandbar .side{display:none}
+  }
+</style>
+</head>
+<body>
+
+<div class="bar">
+  <b>旬彩坊 サービス一覧（A4表裏）</b>
+  <small class="hideM">「印刷／PDF保存」→ 用紙A4・両面・余白なし がおすすめ</small>
+  <button onclick="window.print()">🖨 印刷 / PDF保存</button>
+</div>
+
+<!-- ============ 表 (FRONT) ============ -->
+<div class="page">
+  <div class="brandbar">
+    <svg class="logo" viewBox="0 0 44 44"><rect width="44" height="44" rx="12" fill="#1e8e4e"/><path d="M22 33c-6 0-10-4.5-10-10 0-4.5 2.5-7.5 7-8 4-.5 6-1 8-3.5 1.2 2 2 4.5 2 8 0 7-3.5 13.5-7 13.5Z" fill="#a8e0b6"/><path d="M22 33V16" stroke="#1e8e4e" stroke-width="2" stroke-linecap="round"/></svg>
+    <div class="bt"><b>旬彩坊 店舗支援部</b><small>お店の経営パートナー ／ サービス一覧</small></div>
+    <div class="side"><b>お取引店さま向け</b><br>担当：藤谷</div>
+  </div>
+
+  <h1 class="catch">仕入れだけじゃない。<br><span class="u"><span class="mb">売上</span>・<span class="mg">コスト</span>・<span class="mr">手間</span></span>まで、まとめて。</h1>
+  <p class="sub">旬彩坊が、お店の「やった方がいいけど手が回らない」を引き受けます。まずは無料からお試しいただけます。むずかしいことは、こちらで巻き取ります。</p>
+
+  <div class="sec-h"><span class="tag">まずは無料で</span><b>お金をかけずに、始められます</b></div>
+  <div class="free4">
+    <div class="ftile">
+      <span class="bdg">無料作成</span>
+      <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="4" width="12" height="17" rx="2"/><path d="M9 13l2 2 4-4"/></svg>
+      <h3>多言語チェックリスト</h3>
+      <p>開店・閉店の手順を日本語・英語・中国語で。外国人スタッフも迷わない。</p>
+    </div>
+    <div class="ftile">
+      <span class="bdg">無料作成</span>
+      <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a15 15 0 0 1 0 18M12 3a15 15 0 0 0 0 18"/></svg>
+      <h3>かんたんホームページ</h3>
+      <p>スマホで見やすい1ページを無料で。予約・地図・メニューをまとめて掲載。</p>
+    </div>
+    <div class="ftile">
+      <span class="bdg">無料</span>
+      <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="M7 14l3-3 2 2 5-5"/></svg>
+      <h3>仕入れ見える化レポート</h3>
+      <p>旬彩坊の取引データから、割高な品目と削減ポイントをご提案。</p>
+    </div>
+    <div class="ftile">
+      <span class="bdg">無料</span>
+      <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+      <h3>経営のご相談</h3>
+      <p>「うちの場合は？」だけでOK。お店に合うものを一緒に考えます。</p>
+    </div>
+  </div>
+
+  <div class="sec-h"><span class="tag">3つの支援</span><b>できることの全体像</b></div>
+  <div class="pil3">
+    <div class="pil b">
+      <div class="bd"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11l19-9-9 19-2-8-8-2z"/></svg></div>
+      <h3>売上アップ</h3>
+      <p>「選ばれるお店」に。集客と客単価の両面から。</p>
+      <div class="ex"><b>HP制作／写真撮影／SNS運用／Googleマップ／媒体編集</b> ほか</div>
+    </div>
+    <div class="pil g">
+      <div class="bd"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="M19 9l-5 5-4-4-3 3"/></svg></div>
+      <h3>コスト削減</h3>
+      <p>仕入れ・原価・固定費を見える化してムダを削る。</p>
+      <div class="ex"><b>仕入れ見える化／原価・粗利分析／固定費の棚卸し</b> ほか</div>
+    </div>
+    <div class="pil r">
+      <div class="bd"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 9h18M8 14h2m4 0h2"/></svg></div>
+      <h3>業務をラクに</h3>
+      <p>集計・精算・事務をツールで自動化。現場の時間を戻す。</p>
+      <div class="ex"><b>チェックリスト／ヘルプ精算／POS月次レポート</b> ほか</div>
+    </div>
+  </div>
+
+  <div class="cond">
+    <b>初回無料について</b>　旬彩坊と「月15万円以上のお取引」または「週3回以上の配送」があるお店は、対象ツールを1つ<b>初回無料</b>でお試しいただけます（自動課金なし・継続は希望店のみ）。撮影・制作・広告など実費のかかるものは別途お見積り。
+  </div>
+  <div class="flip">▶ くわしいメニュー・料金の目安は【裏面】へ</div>
+</div>
+
+<!-- ============ 裏 (BACK) ============ -->
+<div class="page">
+  <div class="brandbar">
+    <svg class="logo" viewBox="0 0 44 44"><rect width="44" height="44" rx="12" fill="#1e8e4e"/><path d="M22 33c-6 0-10-4.5-10-10 0-4.5 2.5-7.5 7-8 4-.5 6-1 8-3.5 1.2 2 2 4.5 2 8 0 7-3.5 13.5-7 13.5Z" fill="#a8e0b6"/><path d="M22 33V16" stroke="#1e8e4e" stroke-width="2" stroke-linecap="round"/></svg>
+    <div class="bt"><b>サービス メニュー</b><small>料金の目安つき ／ 旬彩坊 店舗支援部</small></div>
+    <div class="side"><b>まずは相談 無料</b><br>合うものだけ、どうぞ</div>
+  </div>
+
+  <div class="legend">
+    <span><i style="background:#1e8e4e"></i>無料</span>
+    <span><i style="background:#fff;border:1.3px solid #34a853"></i>初回無料→月¥500〜</span>
+    <span><i style="background:#f3faf5;border:1px solid #cde"></i>相談無料</span>
+    <span><i style="background:#fff6e0;border:1.3px solid #f0c866"></i>外注・お見積り（実費）</span>
+  </div>
+
+  <!-- 売上アップ -->
+  <div class="catblock">
+    <div class="cathead c1"><span class="chip">売上アップ</span><span class="cd">選ばれるお店をつくる</span></div>
+    <div class="row"><div class="nm"><b>かんたんホームページ 作成</b><span>スマホで見やすい1ページ。予約・地図・メニューを掲載。</span></div><span class="badge b-free">無料作成</span></div>
+    <div class="row"><div class="nm"><b>本格ホームページ / LP 制作</b><span>複数ページ・デザイン重視のお店の“顔”を制作。</span></div><span class="badge b-quote">お見積り</span></div>
+    <div class="row"><div class="nm"><b>プロの写真撮影</b><span>料理・店内・スタッフを撮影。媒体・SNS・マップで映える一枚に。</span></div><span class="badge b-quote">外注・お見積り</span></div>
+    <div class="row"><div class="nm"><b>Instagram等 SNS運用代行</b><span>投稿の企画・作成・改善までまとめて。伸びる投稿のコツも共有。</span></div><span class="badge b-quote">外注・お見積り</span></div>
+    <div class="row"><div class="nm"><b>WEB媒体 編集代行</b><span>ぐるなび・食べログの更新、写真選び、紹介文づくりを代行。</span></div><span class="badge b-quote">外注・お見積り</span></div>
+    <div class="row"><div class="nm"><b>Googleマップ改善（MEO）</b><span>表示順位と口コミ評価を底上げ。「近くのお店」で見つかる。</span></div><span class="badge b-quote">お見積り</span></div>
+    <div class="row"><div class="nm"><b>インフルエンサー / レビュアー派遣</b><span>影響力のある食べ手に体験してもらい、口コミ・SNS露出を増やす。</span></div><span class="badge b-quote">外注・お見積り</span></div>
+    <div class="row"><div class="nm"><b>客単価アップ・ネット予約の強化</b><span>メニュー構成や予約導線を見直し、取りこぼしを減らす。</span></div><span class="badge b-consult">相談無料</span></div>
+  </div>
+
+  <!-- コスト削減 -->
+  <div class="catblock">
+    <div class="cathead c2"><span class="chip">コスト削減</span><span class="cd">ムダを見える化して削る</span></div>
+    <div class="row"><div class="nm"><b>仕入れ見える化レポート → 削減提案</b><span>旬彩坊の取引データから割高品を特定。金額感つきでご提案。</span></div><span class="badge b-free">無料</span></div>
+    <div class="row"><div class="nm"><b>原価率・粗利の分析</b><span>メニューごとの原価率と粗利を見える化。値付けの見直しに。</span></div><span class="badge b-consult">相談無料</span></div>
+    <div class="row"><div class="nm"><b>メニュー別 収益分析</b><span>「売れている」と「儲かっている」を分けて把握。</span></div><span class="badge b-consult">相談無料</span></div>
+    <div class="row"><div class="nm"><b>媒体費・固定費の棚卸し</b><span>効果の薄い媒体費・サブスクを整理して見直す。</span></div><span class="badge b-consult">相談無料</span></div>
+  </div>
+
+  <!-- 業務をラクに -->
+  <div class="catblock">
+    <div class="cathead c3"><span class="chip">業務をラクに</span><span class="cd">事務をツールで自動化</span></div>
+    <div class="row"><div class="nm"><b>多言語 開店・閉店チェックリスト</b><span>日・英・中対応。外国人スタッフでも抜け漏れなく回せる。</span></div><span class="badge b-first">初回無料→月¥500〜</span></div>
+    <div class="row"><div class="nm"><b>店舗間ヘルプ精算アプリ</b><span>店舗どうしの応援の人件費を自動で記録・精算。</span></div><span class="badge b-first">初回無料→月¥500〜</span></div>
+    <div class="row"><div class="nm"><b>フードリレー（食材の貸借精算）</b><span>店舗間で融通した食材の貸し借りを金額で記録・月末精算。</span></div><span class="badge b-first">初回無料→月¥500〜</span></div>
+    <div class="row"><div class="nm"><b>POSレジ売上の月次自動レポート</b><span>レジCSVを取り込むだけで売上を自動集計・グラフ化。</span></div><span class="badge b-first">初回無料→月¥500〜</span></div>
+  </div>
+
+  <div class="sec-h" style="margin:6px 0 5px"><span class="tag">進め方</span><b>ムリなく、小さく始めます</b></div>
+  <div class="steps">
+    <div class="stp"><div class="n">STEP 1</div><h4>まず相談（無料）</h4><p>困りごとをお聞きして、合うものをご提案。</p></div>
+    <div class="stp"><div class="n">STEP 2</div><h4>1つ無料で試す</h4><p>対象ツールを初回無料で導入・設定サポート。</p></div>
+    <div class="stp"><div class="n">STEP 3</div><h4>効果を確認</h4><p>使ってみて合うか判断。合わなければやめてOK。</p></div>
+    <div class="stp"><div class="n">STEP 4</div><h4>必要なものだけ継続</h4><p>希望のものだけ継続。自動課金はありません。</p></div>
+  </div>
+
+  <div class="contact">
+    <div class="ct">
+      <b>まずは、ひと言ご相談ください。</b>
+      <small>旬彩坊 店舗支援部（担当：藤谷）／ 運営：スパイシーデバイス（合同会社 旬彩坊 パートナー）</small>
+    </div>
+    <div class="lines">
+      LINE・メールで相談<br>
+      <span class="tel">042-794-7740</span>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>
